@@ -10,21 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_27_133159) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_27_144823) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "answers", force: :cascade do |t|
-    t.string "answer"
-    t.bigint "user_id", null: false
-    t.bigint "question_id", null: false
-    t.bigint "game_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["game_id"], name: "index_answers_on_game_id"
-    t.index ["question_id"], name: "index_answers_on_question_id"
-    t.index ["user_id"], name: "index_answers_on_user_id"
-  end
 
   create_table "avatars", force: :cascade do |t|
     t.string "avatar"
@@ -44,11 +32,23 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_133159) do
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.string "share_link"
-    t.string "status"
+    t.string "status", default: "pending"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "proposals", force: :cascade do |t|
+    t.string "proposal"
+    t.bigint "user_id", null: false
+    t.bigint "question_id", null: false
+    t.bigint "game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_proposals_on_game_id"
+    t.index ["question_id"], name: "index_proposals_on_question_id"
+    t.index ["user_id"], name: "index_proposals_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -85,22 +85,22 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_133159) do
 
   create_table "votes", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "answer_id", null: false
+    t.bigint "proposal_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["answer_id"], name: "index_votes_on_answer_id"
+    t.index ["proposal_id"], name: "index_votes_on_proposal_id"
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
-  add_foreign_key "answers", "games"
-  add_foreign_key "answers", "questions"
-  add_foreign_key "answers", "users"
   add_foreign_key "game_users", "games"
   add_foreign_key "game_users", "users"
   add_foreign_key "games", "users"
+  add_foreign_key "proposals", "games"
+  add_foreign_key "proposals", "questions"
+  add_foreign_key "proposals", "users"
   add_foreign_key "rounds", "games"
   add_foreign_key "rounds", "questions"
   add_foreign_key "users", "avatars"
-  add_foreign_key "votes", "answers"
+  add_foreign_key "votes", "proposals"
   add_foreign_key "votes", "users"
 end
