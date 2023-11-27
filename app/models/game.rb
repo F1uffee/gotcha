@@ -4,6 +4,8 @@ class Game < ApplicationRecord
   validates :share_link, presence:true
   validates :status, inclusion: {in: STATUS}
   belongs_to :user
+  has_many :rounds
+  has_many :game_users
   has_many :questions, through: :rounds
   has_many :proposals
   has_many :users, through: :game_users
