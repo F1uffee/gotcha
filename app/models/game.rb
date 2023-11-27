@@ -1,6 +1,10 @@
 class Game < ApplicationRecord
+  STATUS = ["pending", "running", "finished"]
+  validates :name, presence:true
+  validates :share_link, presence:true
+  validates :status, inclusion: {in: STATUS}
   belongs_to :user
   has_many :questions, through: :rounds
-  has_many :answers
+  has_many :proposals
   has_many :users, through: :game_users
 end
