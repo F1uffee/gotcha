@@ -59,7 +59,8 @@ puts 'Creating avatars...'
 
 avatar_1 = Avatar.create!(
   name: "nickname_1",
-  user_id: user_1.id
+  user_id: user_1.id,
+  url: "../app/assets/images/avatars/avatar1.png"
 )
 avatar_1.save!
 
@@ -155,7 +156,7 @@ end
 
 # games
 puts 'Creating games...'
-  
+
   #names
 
   #sharing_link
