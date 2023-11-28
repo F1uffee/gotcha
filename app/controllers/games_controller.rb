@@ -12,7 +12,7 @@ class GamesController < ApplicationController
       10.times do
         Round.create(game_id: @game.id, question_id: @questions.sample.id)
       end
-      redirect_to games_path(@games)
+      redirect_to game_path(@game)
     else
       render :new, status: :unprocessable_entity
     end

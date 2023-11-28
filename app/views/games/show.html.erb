@@ -1,4 +1,6 @@
 
+
+<%# Il faudrait rajouter le fait qu'on peut pas accéder à cette page si on ne fait pas partie du game_user de cette game %>
 <% if @game.status == "pending" %>
   <H1>EN ATTENTE DE JOUEURS....</H1>
 
@@ -8,12 +10,17 @@
   <% end %>
 
   <% @game.game_users.each do |game_user|%>
-    <%= game_user.user_id.name %>
+    <% @user_id = game_user.user_id %>
+    <%@avatars = Avatar.where(user_id: @user_id)%>
+    <% @avatars.each do |avatar|%>
+      <%= avatar.url %>
+      <%= avatar.name %>
+    <% end %>
   <% end %>
 
     <% if @game.user_id == current_user.id %>
-    <p>LIEN D'INVITATION</p>
-    <%= link_to "https://www.gotyou.fr/avatars/new?game_id=#{@game.id}" %>
+    <%# comment faire pour que le link to edit et update le status de la partie à running %>
+    <%= link_to "Lancer la partie", edit_game_path(@game) %>
   <% end %>
-  
+
 <% end %>

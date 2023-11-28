@@ -279,3 +279,22 @@ game_users_1= GameUser.create!(
   user_id: user_5.id,
   game_id: game_2.id
 )
+
+game_users_1= GameUser.create!(
+  user_id: user_2.id,
+  game_id: game_1.id
+)
+
+game_users_1= GameUser.create!(
+  user_id: user_3.id,
+  game_id: game_1.id
+)
+game_users_1= GameUser.create!(
+  user_id: user_4.id,
+  game_id: game_1.id
+)
+
+game_users_1= GameUser.create!(
+  user_id: user_5.id,
+  game_id: game_1.id
+)
