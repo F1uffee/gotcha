@@ -1,3 +1,5 @@
 class Avatar < ApplicationRecord
-  has_many :users
+  belongs_to :user
+  validates :name, presence:true
+  url :name, presence:true
 end
