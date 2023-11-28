@@ -18,9 +18,13 @@ class GamesController < ApplicationController
     end
   end
 
+  def show
+    @game = Game.find(params[:id])
+  end
+
   private
   def params_game
-    params.require(:game).permit(:name, :share_link, :status)
+    params.require(:game).permit(:name, :status)
   end
 
 end
