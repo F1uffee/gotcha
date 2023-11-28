@@ -11,6 +11,14 @@
 <!-- -le simple form du pseudo -->
   <%= simple_form_for(@avatar) do |f| %>
     <%= f.input :name %>
+    <!-- carroussel avec 6 avatars -->
+    <div data-controller="carouselhome" class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+      </div>
+    </div>
     <%= f.button :submit, "Créer une partie privée"%>
   <% end %>
 
