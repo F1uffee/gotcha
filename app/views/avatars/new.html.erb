@@ -1,0 +1,5 @@
+<%= simple_form_for(@avatar) do |f| %>
+    <%= f.input :name %>
+    <%= f.text_field :title, value: @game, type: "hidden"  %>
+    <%= f.button :submit, "Créer"%>
+  <% end %>
