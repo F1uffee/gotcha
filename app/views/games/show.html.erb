@@ -4,10 +4,14 @@
 <% if @game.status == "pending" %>
   <H1>EN ATTENTE DE JOUEURS....</H1>
 
+<div data-controller="clipboard" data-clipboard-feedback-text-value="Copied!">
   <% if @game.user_id == current_user.id %>
     <p>LIEN D'INVITATION</p>
-    <%= link_to "https://www.gotyou.fr/avatars/new?game_id=#{@game.id}" %>
+    <div><%= link_to "https://www.gotyou.fr/avatars/new?game_id=#{@game.id}"%></div>
+    <div><button data-action="click->clipboard#copy">Copier le lien</button></div>
   <% end %>
+</div>
+
 
   <% @avatar_1 = Avatar.where(user_id: @game.user_id).last%>
   <%= @avatar_1.url %>
