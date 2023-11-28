@@ -7,13 +7,13 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-require "open-uri"
 
 Avatar.destroy_all
 User.destroy_all
 Question.destroy_all
 Round.destroy_all
-#USERS#
+GameUser.destroy_all
+# USERS
 
 puts "creating users..."
 user_1 = User.create!(
@@ -33,7 +33,6 @@ user_3 = User.create!(
   password: "password"
 )
 user_3.save!
-
 
 user_4 = User.create!(
   email: "luke.skywalker@proton.me",
@@ -56,42 +55,52 @@ user_6.save!
 #avatar
 puts 'Creating avatars...'
 
-
 avatar_1 = Avatar.create!(
   name: "nickname_1",
-  user_id: user_1.id,
-  url: "../app/assets/images/avatars/avatar1.png"
+  user_id: user_1.id
 )
+file = File.open(Rails.root.join("app/assets/images/avatars/avatar1.png"))
+avatar_1.photo.attach(io: file, filename: "avatar1.png", content_type: "image/png")
 avatar_1.save!
 
 avatar_2 = Avatar.create!(
   name: "nickname_2",
   user_id: user_2.id
 )
+file = File.open(Rails.root.join("app/assets/images/avatars/avatar2.png"))
+avatar_2.photo.attach(io: file, filename: "avatar2.png", content_type: "image/png")
 avatar_2.save!
 
 avatar_3 = Avatar.create!(
   name: "nickname_3",
   user_id: user_3.id
 )
+file = File.open(Rails.root.join("app/assets/images/avatars/avatar3.png"))
+avatar_3.photo.attach(io: file, filename: "avatar3.png", content_type: "image/png")
 avatar_3.save!
 
 avatar_4 = Avatar.create!(
   name: "nickname_4",
   user_id: user_4.id
 )
+file = File.open(Rails.root.join("app/assets/images/avatars/avatar4.png"))
+avatar_4.photo.attach(io: file, filename: "avatar4.png", content_type: "image/png")
 avatar_4.save!
 
 avatar_5 = Avatar.create!(
   name: "nickname_5",
   user_id: user_5.id
 )
+file = File.open(Rails.root.join("app/assets/images/avatars/avatar5.png"))
+avatar_5.photo.attach(io: file, filename: "avatar5.png", content_type: "image/png")
 avatar_5.save!
 
 avatar_6 = Avatar.create!(
   name: "nickname_6",
   user_id: user_6.id
 )
+file = File.open(Rails.root.join("app/assets/images/avatars/avatar6.png"))
+avatar_6.photo.attach(io: file, filename: "avatar6.png", content_type: "image/png")
 avatar_6.save!
 
 # questions
@@ -154,16 +163,118 @@ questions.each do |item|
 end
 
 
+
+
 # games
 puts 'Creating games...'
 
-  #names
+game_1 = Game.create!(
+  name: "La partie X",
+  status: "pending",
+  user_id: user_1.id
+)
+game_1.save!
 
-  #sharing_link
+game_2 = Game.create!(
+  name: "La partie Y",
+  status: "running",
+  user_id: user_1.id
+)
+game_2.save!
 
-  #status
+game_3 = Game.create!(
+  name: "La partie Z",
+  status: "finished",
+  user_id: user_1.id
+)
+game_3.save!
+
+
+
 
 # rounds
 
-  #id Q/R
-  #id Game
+puts 'Creating rounds...'
+
+round_1 = Round.create!(
+  question_id: Question.all.sample.id,
+  game_id: game_2.id
+)
+round_1.save!
+
+round_2 = Round.create!(
+  question_id: Question.all.sample.id,
+  game_id: game_2.id
+)
+round_2.save!
+
+round_3 = Round.create!(
+  question_id: Question.all.sample.id,
+  game_id: game_2.id
+)
+round_3.save!
+
+round_4 = Round.create!(
+  question_id: Question.all.sample.id,
+  game_id: game_2.id
+)
+round_4.save!
+
+round_5 = Round.create!(
+  question_id: Question.all.sample.id,
+  game_id: game_2.id
+)
+round_5.save!
+
+round_6 = Round.create!(
+  question_id: Question.all.sample.id,
+  game_id: game_2.id
+)
+round_6.save!
+
+round_7 = Round.create!(
+  question_id: Question.all.sample.id,
+  game_id: game_2.id
+)
+round_7.save!
+
+round_8 = Round.create!(
+  question_id: Question.all.sample.id,
+  game_id: game_2.id
+)
+round_8.save!
+
+round_9 = Round.create!(
+  question_id: Question.all.sample.id,
+  game_id: game_2.id
+)
+round_9.save!
+
+round_10 = Round.create!(
+  question_id: Question.all.sample.id,
+  game_id: game_2.id
+)
+round_10.save!
+
+
+
+
+#game user
+game_users_1= GameUser.create!(
+  user_id: user_2.id,
+  game_id: game_2.id
+)
+
+game_users_1= GameUser.create!(
+  user_id: user_3.id,
+  game_id: game_2.id
+)
+game_users_1= GameUser.create!(
+  user_id: user_4.id,
+  game_id: game_2.id
+)
+
+game_users_1= GameUser.create!(
+  user_id: user_5.id,
+  game_id: game_2.id
+)
