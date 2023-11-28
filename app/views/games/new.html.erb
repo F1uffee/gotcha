@@ -2,7 +2,5 @@
 
 <%= simple_form_for(@game) do |f| %>
     <%= f.input :name %>
-    <p>Envoyez ce lien à vos amis pour les inviter :</p>
-    <p>http://www.gotyou.fr/games/<%= Game.all.length + 1 %></p>
     <%= f.button :submit, "Créer"%>
   <% end %>
