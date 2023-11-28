@@ -1,7 +1,10 @@
 class AvatarsController < ApplicationController
+  def new
+    @avatar = Avatar.new
+  end
+
 
   def create
-    raise 
     @avatar = Avatar.new(params_avatar)
     @avatar.user_id = current_user.id
   end

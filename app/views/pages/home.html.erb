@@ -11,11 +11,10 @@
 <!-- -le simple form du pseudo -->
 <%= simple_form_for(@avatar) do |f| %>
   <%= f.input :name %>
-  <%= f.input :user %>
+    <h2>Choix de l'avatar</h2>
   <%= f.input :url %>
   <%= f.submit %>
 <% end %>
-    <h2>Choix de l'avatar</h2>
 <!-- carroussel avec 6 avatars -->
   <div class="carousel">
     <!-- Carousel items (placeholders) -->
