@@ -9,11 +9,11 @@
 #   end
 
 Avatar.destroy_all
+GameUser.destroy_all
+Round.destroy_all
+Game.destroy_all
 User.destroy_all
 Question.destroy_all
-Round.destroy_all
-GameUser.destroy_all
-# USERS
 
 puts "creating users..."
 user_1 = User.create!(
