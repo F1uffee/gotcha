@@ -9,12 +9,13 @@ Rails.application.routes.draw do
 
   resources :games, only: [:new, :create, :edit, :update, :show] do
     resources :rounds, only: [:new, :create]
+    resources :game_users, only: [:create]
     resources :questions, only:[] do
       resources :proposals, only: [:new, :create]
     end
   end
-    resources :avatars, only: [:create]
-    resources :user_games, only: [:destroy]
+    resources :avatars, only: [:new, :create]
+    resources :game_users, only: [:destroy]
     resources :proposals, only: [:index] do
       resources :votes, only: [:new, :create]
     end
