@@ -25,5 +25,4 @@ class AvatarsController < ApplicationController
   def avatar_params
     params.require(:avatar).permit(:name, :url)
   end
-
 end
