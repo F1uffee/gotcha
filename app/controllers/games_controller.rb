@@ -7,7 +7,11 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(params_game)
     @game.user_id = current_user.id
+    @questions = Question.all
     if @game.save
+      10.times do
+        Round.create(game_id: @game.id, question_id: @questions.sample.id)
+      end
       redirect_to games_path(@games)
     else
       render :new, status: :unprocessable_entity
