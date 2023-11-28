@@ -1,1 +1,14 @@
 // Specific CSS for your home-page
+/* Style for the carousel container */
+.carousel {
+  display: flex;
+  overflow: hidden;
+  width: 300px; /* Adjust the width as needed */
+}
+
+/* Style for each carousel item */
+.carousel-item {
+  flex: 0 0 auto;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
