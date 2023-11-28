@@ -5,10 +5,8 @@ class ProposalsController < ApplicationController
   end
 
   def create
-    # créer une réponse
-
+    @proposal = Proposal.new
   end
-
   def index
     # je peux voir toutes les réponses sauf la mienne
   end
