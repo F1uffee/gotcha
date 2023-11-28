@@ -198,61 +198,61 @@ game_3.save!
 puts 'Creating rounds...'
 
 round_1 = Round.create!(
-  question_id: Question.all.sample.id,
+  question_id: Question.first.id,
   game_id: game_2.id
 )
 round_1.save!
 
 round_2 = Round.create!(
-  question_id: Question.all.sample.id,
+  question_id: Question.first.id + 1,
   game_id: game_2.id
 )
 round_2.save!
 
 round_3 = Round.create!(
-  question_id: Question.all.sample.id,
+  question_id: Question.first.id + 2,
   game_id: game_2.id
 )
 round_3.save!
 
 round_4 = Round.create!(
-  question_id: Question.all.sample.id,
+  question_id: Question.first.id + 3,
   game_id: game_2.id
 )
 round_4.save!
 
 round_5 = Round.create!(
-  question_id: Question.all.sample.id,
+  question_id: Question.first.id + 4,
   game_id: game_2.id
 )
 round_5.save!
 
 round_6 = Round.create!(
-  question_id: Question.all.sample.id,
+  question_id: Question.first.id + 5,
   game_id: game_2.id
 )
 round_6.save!
 
 round_7 = Round.create!(
-  question_id: Question.all.sample.id,
+  question_id: Question.first.id + 6,
   game_id: game_2.id
 )
 round_7.save!
 
 round_8 = Round.create!(
-  question_id: Question.all.sample.id,
+  question_id: Question.first.id + 7,
   game_id: game_2.id
 )
 round_8.save!
 
 round_9 = Round.create!(
-  question_id: Question.all.sample.id,
+  question_id: Question.first.id + 8,
   game_id: game_2.id
 )
 round_9.save!
 
 round_10 = Round.create!(
-  question_id: Question.all.sample.id,
+  question_id: Question.first.id + 9,
   game_id: game_2.id
 )
 round_10.save!
