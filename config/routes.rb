@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :proposals, only: [:new, :create]
     end
   end
+    resources :avatars, only: [:create]
     resources :user_games, only: [:destroy]
     resources :proposals, only: [:index] do
       resources :votes, only: [:new, :create]
