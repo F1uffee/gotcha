@@ -7,12 +7,12 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+GameUser.destroy_all
 
 Avatar.destroy_all
 User.destroy_all
 Question.destroy_all
 Round.destroy_all
-GameUser.destroy_all
 # USERS
 
 puts "creating users..."
