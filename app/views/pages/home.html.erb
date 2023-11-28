@@ -9,12 +9,11 @@
   <h1> Vous n'avez besoin que de votre imagination ! </h1>
     <h2>Choix du pseudo</h2>
 <!-- -le simple form du pseudo -->
-<%= simple_form_for(@avatar) do |f| %>
-  <%= f.input :name %>
-    <h2>Choix de l'avatar</h2>
-  <%= f.input :url %>
-  <%= f.submit %>
-<% end %>
+  <%= simple_form_for(@avatar) do |f| %>
+    <%= f.input :name %>
+    <%= f.button :submit, "Créer une partie privée"%>
+  <% end %>
+
 <!-- carroussel avec 6 avatars -->
   <div class="carousel">
     <!-- Carousel items (placeholders) -->
