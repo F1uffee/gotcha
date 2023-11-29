@@ -2,6 +2,7 @@
 <% if @game.status == "pending" %>
   <H1>EN ATTENTE DE JOUEURS....</H1>
 
+
 <div data-controller="clipboard" data-clipboard-success-content-value="Copied!">
   <% if @game.user_id == current_user.id %>
     <p>LIEN D'INVITATION</p>
@@ -25,5 +26,37 @@
   <% if @game.user_id == current_user.id %>
     <%= button_to "Lancer la partie", game_path(@game, status: "running"),method: :patch %>
   <% end %>
+
+<% end %>
+
+<% if @game.status == "running" %>
+  <% @game.game_users.each do |game_user|%>
+    <% @user_id = game_user.user_id %>
+    <% @avatar = Avatar.where(user_id: @user_id).last%>
+    <%= @avatar.name %>
+    <%= @avatar.score %>
+  <% end %>
+
+  <br>
+  <br>
+  <br>
+    <% questions = @game.questions %>
+    <% questions.each do |question| %>
+      <%= question.id %>
+      <%= question.reponse %>
+      <% @proposals = question.proposals %>
+      <ul>
+      <% @proposals.each do |proposal| %>
+      <li>
+        <% proposal.votes.empty? %>
+        <%= proposal.proposal%> : <%= proposal.user_id %>
+        <% number_of_votes = proposal.votes.count %>
+        <%= number_of_votes -1 %>
+        <% end %>
+      <% end %>
+      </li>
+
+      </ul>
+
 
 <% end %>
