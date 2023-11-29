@@ -4,13 +4,13 @@
 <% if @game.status == "pending" %>
   <H1>EN ATTENTE DE JOUEURS....</H1>
 
-<div data-controller="clipboard" data-clipboard-feedback-text-value="Copied!">
-  <% if @game.user_id == current_user.id %>
-    <p>LIEN D'INVITATION</p>
-    <div><%= link_to "https://www.gotyou.fr/avatars/new?game_id=#{@game.id}"%></div>
-    <div><button data-action="click->clipboard#copy">Copier le lien</button></div>
-  <% end %>
-</div>
+  <div data-controller="clipboard" data-clipboard-feedback-text-value="Copied!">
+    <% if @game.user_id == current_user.id %>
+      <p>LIEN D'INVITATION</p>
+      <div><%= link_to "https://www.gotyou.fr/avatars/new?game_id=#{@game.id}"%></div>
+      <div><button data-action="click->clipboard#copy">Copier le lien</button></div>
+    <% end %>
+  </div>
 
 
   <% @avatar_1 = Avatar.where(user_id: @game.user_id).last%>
@@ -30,3 +30,37 @@
   <% end %>
 
 <% end %>
+
+<% if @game.status == "running" %>
+  <% @game.game_users.each do |game_user|%>
+    <% @user_id = game_user.user_id %>
+    <% @avatar = Avatar.where(user_id: @user_id).last%>
+    <%= @avatar.name %>
+    <%= @avatar.score %>
+  <% end %>
+
+  <br>
+  <br>
+  <br>
+
+  <% questions = @game.questions %>
+  <% questions.each do |question| %>
+    <%= question.id %>
+  <% end %>
+  <% proposals = questions[0].proposals %>
+  <% proposals.each do |proposal| %>
+    <%= proposal.votes %>
+  <% end %>
+
+<% end %>
+  <%# <%= proposals.votes %>
+
+  <%# <% if @game.proposals.votes != nil %>
+
+
+  <%# la fin d'un round arrive lorsque les votes des proposals liés à la présente question ne sont pas nill %>
+
+  <%#
+  dès qu'un joueur obtient un vote d'un autre joueur pour sa proposal il gagne X points
+  dès qu'un joueur vote pour la vraie réponse il obtient X points
+  %>
