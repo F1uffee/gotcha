@@ -1,9 +1,9 @@
-# en tant qu'utilisateur je peux voir la question
+<%# # en tant qu'utilisateur je peux voir la question %>
 
 <%= @question.question %>
-
-# donner ma réponse à la question
-
-<%# <%= simple_form_for(@proposal) do |f| %>
-    <%# <%= f.input :answer %>
-<%# <% end %>
+<br>
+<%# # donner ma réponse à la question %>
+<%= simple_form_for(@proposal) do |f| %>
+  <%= f.input :proposal %>
+  <%= f.submit %>
+<% end %>

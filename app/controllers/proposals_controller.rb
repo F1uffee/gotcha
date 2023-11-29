@@ -5,15 +5,20 @@ class ProposalsController < ApplicationController
   end
 
   def create
+    # je récupère la réponse du user
     @proposal = Proposal.new
-    # je dois récupérer la new
-    # je dois récupérer l'id de la question
-    # id du current user
+    # game id
+    if @proposal.save
+      redirect_to @proposal
+    end
   end
 
   def index
     # je peux voir toutes les réponses sauf la mienne
-    @proposals = Proposal.all
+    @proposals = Proposal.where.not(user: current_user)
     # sauf celle du current user
   end
+
+  
+
 end
