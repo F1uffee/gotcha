@@ -20,6 +20,14 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    # if @game.user_id == current_user.id || current_user.game_users.id
+  end
+
+
+  def update
+    @game = Game.find(params[:id])
+    @game.status = params[:status]
+    redirect_to new_game_question_proposal_path(@game)
   end
 
   private

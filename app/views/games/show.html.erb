@@ -1,14 +1,13 @@
 
-
 <%# Il faudrait rajouter le fait qu'on peut pas accéder à cette page si on ne fait pas partie du game_user de cette game %>
 <% if @game.status == "pending" %>
   <H1>EN ATTENTE DE JOUEURS....</H1>
 
-<div data-controller="clipboard" data-clipboard-feedback-text-value="Copied!">
+<div data-controller="clipboard" data-clipboard-success-content-value="Copied!">
   <% if @game.user_id == current_user.id %>
     <p>LIEN D'INVITATION</p>
-    <div><%= link_to "https://www.gotyou.fr/avatars/new?game_id=#{@game.id}"%></div>
-    <div><button data-action="click->clipboard#copy">Copier le lien</button></div>
+    <div><%= link_to "https://www.gotyou.fr/avatars/new?game_id=#{@game.id}", data: {clipboard_target: "source"}%></div>
+    <div><button data-action="clipboard#copy" data-clipboard-target="button">Copier le lien</button></div>
   <% end %>
 </div>
 
@@ -26,7 +25,7 @@
 
   <% if @game.user_id == current_user.id %>
     <%# comment faire pour que le link to edit et update le status de la partie à running %>
-    <%= link_to "Lancer la partie", edit_game_path(@game) %>
+    <%= link_to "Lancer la partie", game_path(@game, status: "running"), data: {turbo_method: :patch} %>
   <% end %>
 
 <% end %>
