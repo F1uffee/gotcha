@@ -14,7 +14,10 @@ GameUser.destroy_all
 Round.destroy_all
 Game.destroy_all
 User.destroy_all
+Vote.destroy_all
+Proposal.destroy_all
 Question.destroy_all
+
 
 puts "creating users..."
 user_1 = User.create!(
@@ -355,4 +358,42 @@ game_users_1= GameUser.create!(
 game_users_1= GameUser.create!(
   user_id: user_5.id,
   game_id: game_1.id
+)
+
+puts 'Creating proposals...'
+
+proposal_1= Proposal.create!(
+  proposal: "blablabla",
+  user_id: user_5.id,
+  question_id: Question.first.id,
+  game_id: game_2.id,
+)
+
+proposal_2= Proposal.create!(
+  proposal: "blibliblou",
+  user_id: user_4.id,
+  question_id: Question.first.id,
+  game_id: game_2.id,
+)
+
+proposal_3= Proposal.create!(
+  proposal: "bliblublé",
+  user_id: user_3.id,
+  question_id: Question.first.id,
+  game_id: game_2.id,
+)
+
+vote_1= Vote.create!(
+  user_id: user_5.id,
+  proposal_id: proposal_3.id,
+)
+
+vote_2= Vote.create!(
+  user_id: user_3.id,
+  proposal_id: proposal_2.id,
+)
+
+vote_3= Vote.create!(
+  user_id: user_4.id,
+  proposal_id: proposal_1.id,
 )
