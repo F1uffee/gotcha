@@ -42,21 +42,23 @@
   <br>
     <% questions = @game.questions %>
     <% questions.each do |question| %>
-      <%= question.id %>
-      <%= question.reponse %>
-      <% @proposals = question.proposals %>
       <ul>
-      <% @proposals.each do |proposal| %>
-      <li>
-        <% proposal.votes.empty? %>
-        <%= proposal.proposal%> : <%= proposal.user_id %>
-        <% number_of_votes = proposal.votes.count %>
-        <%= number_of_votes -1 %>
+        <li>question : <%= question.id %></li>
+        <li>bonne réponse : <%= question.reponse %></li>
+        <% @proposals = question.proposals %>
+        <li>liste des propositions :</li>
+        <% @proposals.each do |proposal| %>
+          <% proposal.votes.empty? %>
+          <% number_of_votes = proposal.votes.count %>
+          <ul>
+            <li>"<%= proposal.proposal%>" proposé par User_<%= proposal.user_id %> - nombre de votes <%= number_of_votes %> </li>
+            <% proposal.votes.each do |vote|%>
+              <ul>
+                <li>User_<%= vote.user_id %> a voté</li>
+              </ul>
+            <% end %>
+          </ul>
         <% end %>
-      <% end %>
-      </li>
-
       </ul>
-
-
+    <% end %>
 <% end %>
