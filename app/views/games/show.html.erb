@@ -1,4 +1,3 @@
-
 <%# Il faudrait rajouter le fait qu'on peut pas accéder à cette page si on ne fait pas partie du game_user de cette game %>
 <% if @game.status == "pending" %>
   <H1>EN ATTENTE DE JOUEURS....</H1>
@@ -13,19 +12,18 @@
 
 
   <% @avatar_1 = Avatar.where(user_id: @game.user_id).last%>
-  <%= @avatar_1.url %>
+  <%= image_tag(@avatar_1.photo) %>
   <%= @avatar_1.name %>
 
   <% @game.game_users.each do |game_user|%>
     <% @user_id = game_user.user_id %>
     <%@avatar = Avatar.where(user_id: @user_id).last%>
-    <%= @avatar.url %>
+    <%= image_tag(@avatar.photo) %>
     <%= @avatar.name %>
   <% end %>
 
   <% if @game.user_id == current_user.id %>
-    <%# comment faire pour que le link to edit et update le status de la partie à running %>
-    <%= link_to "Lancer la partie", game_path(@game, status: "running"), data: {turbo_method: :patch} %>
+    <%= button_to "Lancer la partie", game_path(@game, status: "running"),method: :patch %>
   <% end %>
 
 <% end %>
