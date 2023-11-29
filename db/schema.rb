@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.1].define(version: 2023_11_29_101905) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,7 +50,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_101905) do
     t.string "name"
     t.bigint "user_id"
     t.integer "score", default: 0, null: false
-    t.index ["user_id"], name: "index_avatars_on_user_id"
   end
 
   create_table "game_users", force: :cascade do |t|

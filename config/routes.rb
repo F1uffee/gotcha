@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :games, only: [:new, :create, :edit, :update, :show] do
     resources :rounds, only: [:new, :create]
     resources :game_users, only: [:create]
-    resources :questions, only:[] do
+    resources :questions, only:[:show] do
       resources :proposals, only: [:new, :create]
     end
   end
@@ -22,9 +22,4 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 end
-
-
-
-
   # Defines the root path route ("/")
-  # root "posts#index"

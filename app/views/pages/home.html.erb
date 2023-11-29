@@ -36,5 +36,8 @@
       <p>rejoindre une partie publique</p>
       <p>Créer une partie privée</p>
     <h2>Comment jouer ?</h2>
+
+<%= button_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+
 </body>
 </html>

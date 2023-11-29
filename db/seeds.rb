@@ -260,7 +260,65 @@ round_10 = Round.create!(
 )
 round_10.save!
 
+round_11 = Round.create!(
+  question_id: Question.first.id,
+  game_id: game_1.id
+)
+round_11.save!
 
+round_12 = Round.create!(
+  question_id: Question.first.id + 1,
+  game_id: game_1.id
+)
+round_12.save!
+
+round_13 = Round.create!(
+  question_id: Question.first.id + 2,
+  game_id: game_1.id
+)
+round_13.save!
+
+round_14 = Round.create!(
+  question_id: Question.first.id + 3,
+  game_id: game_1.id
+)
+round_14.save!
+
+round_15 = Round.create!(
+  question_id: Question.first.id + 4,
+  game_id: game_1.id
+)
+round_15.save!
+
+round_16 = Round.create!(
+  question_id: Question.first.id + 5,
+  game_id: game_1.id
+)
+round_16.save!
+
+round_17 = Round.create!(
+  question_id: Question.first.id + 6,
+  game_id: game_1.id
+)
+round_17.save!
+
+round_18 = Round.create!(
+  question_id: Question.first.id + 7,
+  game_id: game_1.id
+)
+round_18.save!
+
+round_19 = Round.create!(
+  question_id: Question.first.id + 8,
+  game_id: game_1.id
+)
+round_19.save!
+
+round_20 = Round.create!(
+  question_id: Question.first.id + 9,
+  game_id: game_1.id
+)
+round_20.save!
 
 
 #game user
