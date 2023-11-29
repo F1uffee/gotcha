@@ -2,7 +2,7 @@
 <%= @question.question %>
 <br>
 <%# # donner ma réponse à la question %>
-<%= simple_form_for(@proposal) do |f| %>
+<%= simple_form_for([@game, @question, @proposal]) do |f| %>
   <%= f.input :proposal %>
   <%= f.submit %>
 <% end %>
