@@ -1,7 +1,20 @@
-<%= @shuffled_array %>
-<%  @question.proposals.each do |proposal| %>
-  <ul>
-    <li><%= proposal.proposal %></li>
-  </ul>
-
+<%# <% @shuffled_array %>
+<ul>
+<%  @shuffled_array.each do |proposal| %>
+  <% if proposal.class == Proposal %>
+    <li>
+    <%= simple_form_for [proposal,Vote.new] do |f| %>
+      <div class="d-none">
+          <%= f.input :proposal_id, input_html: {value: proposal.id} %>
+      </div>
+      <%= proposal.proposal %>
+      <%= f.submit 'Valider' %>
+      <% end %>
+    </li>
+  <% else %>
+    <li>
+      <%= proposal.reponse %>
+    </li>
+  <% end %>
 <% end %>
+  </ul>
