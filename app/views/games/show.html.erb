@@ -40,25 +40,23 @@
   <br>
   <br>
   <br>
+    <% questions = @game.questions %>
+    <% questions.each do |question| %>
+      <%= question.id %>
+      <%= question.reponse %>
+      <% @proposals = question.proposals %>
+      <ul>
+      <% @proposals.each do |proposal| %>
+      <li>
+        <% proposal.votes.empty? %>
+        <%= proposal.proposal%> : <%= proposal.user_id %>
+        <% number_of_votes = proposal.votes.count %>
+        <%= number_of_votes -1 %>
+        <% end %>
+      <% end %>
+      </li>
 
-  <% questions = @game.questions %>
-  <% questions.each do |question| %>
-    <%= question.id %>
-  <% end %>
-  <% proposals = questions[0].proposals %>
-  <% proposals.each do |proposal| %>
-    <%= proposal.votes %>
-  <% end %>
+      </ul>
+
 
 <% end %>
-  <%# <%= proposals.votes %>
-
-  <%# <% if @game.proposals.votes != nil %>
-
-
-  <%# la fin d'un round arrive lorsque les votes des proposals liés à la présente question ne sont pas nill %>
-
-  <%#
-  dès qu'un joueur obtient un vote d'un autre joueur pour sa proposal il gagne X points
-  dès qu'un joueur vote pour la vraie réponse il obtient X points
-  %>
