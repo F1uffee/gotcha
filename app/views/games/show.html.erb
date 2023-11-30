@@ -38,7 +38,6 @@
 <br>
 <br>
   <br>
-
     <% questions = @game.questions %>
     <% questions.each do |question| %>
       <ul>
@@ -60,6 +59,7 @@
         <% end %>
       </ul>
     <% end %>
+
     <% if params[:question].nil? %>
       <%= link_to "manche suivante", game_path(@game) %>
     <% else %>
