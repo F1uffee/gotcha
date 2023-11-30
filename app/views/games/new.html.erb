@@ -2,7 +2,6 @@
 <% @user_id = current_user.id %>
 <% @avatar = Avatar.where(user_id: @user_id).last%>
 <h1>BIENVENUE <%= @avatar.name.upcase %>!</h1>
-<%= @avatar.url %>
 
 <%= simple_form_for(@game) do |f| %>
     <%= f.input :name, label: 'DONNE UN NOM À TA PARTIE', placeholder: "Le super nom de ta partie"  %>
