@@ -12,10 +12,10 @@ GameUser.destroy_all
 Avatar.destroy_all
 GameUser.destroy_all
 Round.destroy_all
-Game.destroy_all
-User.destroy_all
 Vote.destroy_all
 Proposal.destroy_all
+Game.destroy_all
+User.destroy_all
 Question.destroy_all
 
 
@@ -61,51 +61,57 @@ puts 'Creating avatars...'
 
 avatar_1 = Avatar.create!(
   name: "nickname_1",
+  url: "avatar1",
   user_id: user_1.id
 )
-file = File.open(Rails.root.join("app/assets/images/avatars/avatar1.png"))
-avatar_1.photo.attach(io: file, filename: "avatar1.png", content_type: "image/png")
-avatar_1.save!
+# file = File.open(Rails.root.join("app/assets/images/avatars/avatar1.png"))
+# avatar_1.photo.attach(io: file, filename: "avatar1.png", content_type: "image/png")
+# avatar_1.save!
 
 avatar_2 = Avatar.create!(
   name: "nickname_2",
+  url: "avatar2",
   user_id: user_2.id
 )
-file = File.open(Rails.root.join("app/assets/images/avatars/avatar2.png"))
-avatar_2.photo.attach(io: file, filename: "avatar2.png", content_type: "image/png")
-avatar_2.save!
+# file = File.open(Rails.root.join("app/assets/images/avatars/avatar2.png"))
+# avatar_2.photo.attach(io: file, filename: "avatar2.png", content_type: "image/png")
+# avatar_2.save!
 
 avatar_3 = Avatar.create!(
   name: "nickname_3",
+  url: "avatar3",
   user_id: user_3.id
 )
-file = File.open(Rails.root.join("app/assets/images/avatars/avatar3.png"))
-avatar_3.photo.attach(io: file, filename: "avatar3.png", content_type: "image/png")
-avatar_3.save!
+# file = File.open(Rails.root.join("app/assets/images/avatars/avatar3.png"))
+# avatar_3.photo.attach(io: file, filename: "avatar3.png", content_type: "image/png")
+# avatar_3.save!
 
 avatar_4 = Avatar.create!(
   name: "nickname_4",
+  url: "avatar4",
   user_id: user_4.id
 )
-file = File.open(Rails.root.join("app/assets/images/avatars/avatar4.png"))
-avatar_4.photo.attach(io: file, filename: "avatar4.png", content_type: "image/png")
-avatar_4.save!
+# file = File.open(Rails.root.join("app/assets/images/avatars/avatar4.png"))
+# avatar_4.photo.attach(io: file, filename: "avatar4.png", content_type: "image/png")
+# avatar_4.save!
 
 avatar_5 = Avatar.create!(
   name: "nickname_5",
+  url: "avatar5",
   user_id: user_5.id
 )
-file = File.open(Rails.root.join("app/assets/images/avatars/avatar5.png"))
-avatar_5.photo.attach(io: file, filename: "avatar5.png", content_type: "image/png")
-avatar_5.save!
+# file = File.open(Rails.root.join("app/assets/images/avatars/avatar5.png"))
+# avatar_5.photo.attach(io: file, filename: "avatar5.png", content_type: "image/png")
+# avatar_5.save!
 
 avatar_6 = Avatar.create!(
   name: "nickname_6",
+  url: "avatar6",
   user_id: user_6.id
 )
-file = File.open(Rails.root.join("app/assets/images/avatars/avatar6.png"))
-avatar_6.photo.attach(io: file, filename: "avatar6.png", content_type: "image/png")
-avatar_6.save!
+# file = File.open(Rails.root.join("app/assets/images/avatars/avatar6.png"))
+# avatar_6.photo.attach(io: file, filename: "avatar6.png", content_type: "image/png")
+# avatar_6.save!
 
 # questions
 puts 'Creating questions...'
@@ -382,6 +388,8 @@ proposal_3= Proposal.create!(
   question_id: Question.first.id,
   game_id: game_2.id,
 )
+
+puts 'Creating votes...'
 
 vote_1= Vote.create!(
   user_id: user_5.id,

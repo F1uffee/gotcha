@@ -23,12 +23,27 @@ class GamesController < ApplicationController
     # unless @game.user_id == current_user.id || current_user.game_users.where(game_id: @game.id)
     #   redirect_to root_path
     # end
+    if params[:question].nil?
+      @question = @game.questions[0]
+    else
+      @question = @game.questions[params[:question].to_i]
+    end
+      if @game.status == "running" && @question.proposals.empty?
+        redirect_to new_game_question_proposal_path(@game, @question)
+      end
+    @game_users = @game.game_users
+    @avatars = @game_users.map do |game_user|
+      @avatar = Avatar.where(user_id: game_user.user_id).last
+    end
+    @proposals = @game.proposals.to_a
+    @owner = Avatar.where(user_id: @game.user_id).last
   end
 
   def update
     @game = Game.find(params[:id])
     @game.status = params[:status]
     @question = @game.questions[0]
+    @game.update(status:params[:status])
     redirect_to new_game_question_proposal_path(@game, @question)
   end
 
