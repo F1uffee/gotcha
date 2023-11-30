@@ -11,16 +11,12 @@
   <% end %>
 </div>
 
+  <%= @owner.name %>
+  <%= image_tag("avatars/#{@owner.url}.png") %>
 
-  <% @avatar_1 = Avatar.where(user_id: @game.user_id).last%>
-  <%= image_tag("avatars/#{@avatar_1.url}.png") %>
-  <%= @avatar_1.name %>
-
-  <% @game.game_users.each do |game_user|%>
-    <% @user_id = game_user.user_id %>
-    <%@avatar = Avatar.where(user_id: @user_id).last%>
-    <%= image_tag("avatars/#{@avatar.url}.png") %>
-    <%= @avatar.name %>
+  <% @avatars.each do |avatar| %>
+    <%= avatar.name %>
+    <%= image_tag("avatars/#{avatar.url}.png") %>
   <% end %>
 
   <% if @game.user_id == current_user.id %>
@@ -36,10 +32,11 @@
     <%avatar.score += proposal.votes.count * 2 %>
     <% end %>
   <% end %>
-  <%= avatar.name %>
-  <%= avatar.score %>
+  <li>  <%= avatar.name %> : <%= avatar.score %> points</li>
 <% end %>
-
+  <li><%= @owner.name %> : <%= @owner.score %> points</li>
+<br>
+<br>
   <br>
     <% questions = @game.questions %>
     <% questions.each do |question| %>
