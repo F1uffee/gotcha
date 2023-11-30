@@ -36,6 +36,7 @@ class GamesController < ApplicationController
       @avatar = Avatar.where(user_id: game_user.user_id).last
     end
     @proposals = @game.proposals.to_a
+    @owner = Avatar.where(user_id: @game.user_id).last
   end
 
   def update
