@@ -31,6 +31,11 @@ class GamesController < ApplicationController
       if @game.status == "running" && @question.proposals.empty?
         redirect_to new_game_question_proposal_path(@game, @question)
       end
+    @game_users = @game.game_users
+    @avatars = @game_users.map do |game_user|
+      @avatar = Avatar.where(user_id: game_user.user_id).last
+    end
+    @proposals = @game.proposals.to_a
   end
 
   def update

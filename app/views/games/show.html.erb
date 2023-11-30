@@ -30,16 +30,18 @@
 <% end %>
 
 <% if @game.status == "running" %>
-  <% @game.game_users.each do |game_user|%>
-    <% @user_id = game_user.user_id %>
-    <% @avatar = Avatar.where(user_id: @user_id).last%>
-    <%= @avatar.name %>
-    <%= @avatar.score %>
+<% @avatars.each do |avatar| %>
+  <% @proposals.each do |proposal| %>
+    <% if proposal.user_id == avatar.user_id %>
+    <%avatar.score += proposal.votes.count * 2 %>
+    <% end %>
   <% end %>
+  <%= avatar.name %>
+  <%= avatar.score %>
+<% end %>
 
   <br>
-  <br>
-  <br>
+
     <% questions = @game.questions %>
     <% questions.each do |question| %>
       <ul>
