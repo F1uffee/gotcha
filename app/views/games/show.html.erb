@@ -13,13 +13,13 @@
 
 
   <% @avatar_1 = Avatar.where(user_id: @game.user_id).last%>
-  <%= image_tag(@avatar_1.photo) %>
+  <%= image_tag("avatars/#{@avatar_1.url}.png") %>
   <%= @avatar_1.name %>
 
   <% @game.game_users.each do |game_user|%>
     <% @user_id = game_user.user_id %>
     <%@avatar = Avatar.where(user_id: @user_id).last%>
-    <%= image_tag(@avatar.photo) %>
+    <%= image_tag("avatars/#{@avatar.url}.png") %>
     <%= @avatar.name %>
   <% end %>
 
