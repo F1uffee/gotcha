@@ -61,4 +61,9 @@
         <% end %>
       </ul>
     <% end %>
+    <% if params[:question].nil? %>
+      <%= link_to "manche suivante", game_path(@game) %>
+    <% else %>
+      <%= link_to game_path(@game), question: params[:question].to_i + 1 %>
+    <% end %>
 <% end %>
