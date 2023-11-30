@@ -12,10 +12,10 @@ GameUser.destroy_all
 Avatar.destroy_all
 GameUser.destroy_all
 Round.destroy_all
-Game.destroy_all
-User.destroy_all
 Vote.destroy_all
 Proposal.destroy_all
+Game.destroy_all
+User.destroy_all
 Question.destroy_all
 
 
@@ -382,6 +382,8 @@ proposal_3= Proposal.create!(
   question_id: Question.first.id,
   game_id: game_2.id,
 )
+
+puts 'Creating votes...'
 
 vote_1= Vote.create!(
   user_id: user_5.id,
