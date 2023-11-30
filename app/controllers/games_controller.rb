@@ -23,6 +23,7 @@ class GamesController < ApplicationController
     # unless @game.user_id == current_user.id || current_user.game_users.where(game_id: @game.id)
     #   redirect_to root_path
     # end
+
     if params[:question].nil?
       @question = @game.questions[0]
     else
@@ -36,6 +37,7 @@ class GamesController < ApplicationController
       @avatar = Avatar.where(user_id: game_user.user_id).last
     end
     @proposals = @game.proposals.to_a
+
     @owner = Avatar.where(user_id: @game.user_id).last
   end
 

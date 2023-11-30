@@ -1,21 +1,29 @@
 
 <%# <% @shuffled_array %>
 <ul>
-<%  @shuffled_array.each do |proposal| %>
-  <% if proposal.class == Proposal %>
-    <li>
-    <%= simple_form_for [proposal,Vote.new] do |f| %>
-      <div class="d-none">
-          <%= f.input :proposal_id, input_html: {value: proposal.id} %>
-      </div>
-      <%= proposal.proposal %>
-      <%= f.submit 'Valider' %>
-      <% end %>
-    </li>
-  <% else %>
-    <li>
-      <%= proposal.reponse %>
-    </li>
+  <%  @shuffled_array.each do |proposal| %>
+    <% if proposal.class == Proposal %>
+      <li>
+      <%= simple_form_for [proposal,Vote.new] do |f| %>
+        <div class="d-none">
+            <%= f.input :proposal_id, input_html: {value: proposal.id} %>
+        </div>
+        <%= proposal.proposal %>
+        <%= f.submit 'Valider' %>
+        <% end %>
+      </li>
+    <% else %>
+      <li>
+        <%= simple_form_for [@all.first,Vote.new] do |f| %>
+        <div class="d-none">
+          <%= f.input :question_id, input_html: {value: @question.id} %>
+        </div>
+        <%= proposal.reponse %>
+        <%= f.submit 'Valider' %>
+        <% end %>
+      </li>
+    <% end %>
   <% end %>
-<% end %>
-  </ul>
+  <%= link_to 'Accéder aux scores',  game_path(@game, question: @index) %>
+</ul>
+

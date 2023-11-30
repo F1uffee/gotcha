@@ -4,11 +4,12 @@
 <!-- le simple form du pseudo -->
   <%= simple_form_for(@avatar) do |f| %>
     <%= f.input :name %>
-<!--
+
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <%= image_tag "avatars/avatar1.png", class:"d-block w-50"%>
+
     </div>
     <div class="carousel-item">
       <%= image_tag "avatars/avatar2.png", class:"d-block w-50"%>
@@ -35,7 +36,7 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
--->
+
 
   <p> selectionne un avatar</p>
   <div>
@@ -73,6 +74,7 @@
 
     <%= f.button :submit, "Créer une partie privée"%>
   <% end %>
+
 
     <h2>Comment jouer ?</h2>
 
