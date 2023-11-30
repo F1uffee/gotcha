@@ -23,8 +23,12 @@ class GamesController < ApplicationController
     # unless @game.user_id == current_user.id || current_user.game_users.where(game_id: @game.id)
     #   redirect_to root_path
     # end
-    @question = @game.questions[0]
-      if @game.status == "running" && @game.questions[1].proposals.empty?
+    if params[:question].nil?
+      @question = @game.questions[0]
+    else
+      @question = @game.questions[params[:question].to_i]
+    end
+      if @game.status == "running" && @question.proposals.empty?
         redirect_to new_game_question_proposal_path(@game, @question)
       end
   end
