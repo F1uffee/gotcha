@@ -12,9 +12,12 @@ GameUser.destroy_all
 Avatar.destroy_all
 GameUser.destroy_all
 Round.destroy_all
+Vote.destroy_all
+Proposal.destroy_all
 Game.destroy_all
 User.destroy_all
 Question.destroy_all
+
 
 puts "creating users..."
 user_1 = User.create!(
@@ -257,7 +260,65 @@ round_10 = Round.create!(
 )
 round_10.save!
 
+round_11 = Round.create!(
+  question_id: Question.first.id,
+  game_id: game_1.id
+)
+round_11.save!
 
+round_12 = Round.create!(
+  question_id: Question.first.id + 1,
+  game_id: game_1.id
+)
+round_12.save!
+
+round_13 = Round.create!(
+  question_id: Question.first.id + 2,
+  game_id: game_1.id
+)
+round_13.save!
+
+round_14 = Round.create!(
+  question_id: Question.first.id + 3,
+  game_id: game_1.id
+)
+round_14.save!
+
+round_15 = Round.create!(
+  question_id: Question.first.id + 4,
+  game_id: game_1.id
+)
+round_15.save!
+
+round_16 = Round.create!(
+  question_id: Question.first.id + 5,
+  game_id: game_1.id
+)
+round_16.save!
+
+round_17 = Round.create!(
+  question_id: Question.first.id + 6,
+  game_id: game_1.id
+)
+round_17.save!
+
+round_18 = Round.create!(
+  question_id: Question.first.id + 7,
+  game_id: game_1.id
+)
+round_18.save!
+
+round_19 = Round.create!(
+  question_id: Question.first.id + 8,
+  game_id: game_1.id
+)
+round_19.save!
+
+round_20 = Round.create!(
+  question_id: Question.first.id + 9,
+  game_id: game_1.id
+)
+round_20.save!
 
 
 #game user
@@ -297,4 +358,44 @@ game_users_1= GameUser.create!(
 game_users_1= GameUser.create!(
   user_id: user_5.id,
   game_id: game_1.id
+)
+
+puts 'Creating proposals...'
+
+proposal_1= Proposal.create!(
+  proposal: "blablabla",
+  user_id: user_5.id,
+  question_id: Question.first.id,
+  game_id: game_2.id,
+)
+
+proposal_2= Proposal.create!(
+  proposal: "blibliblou",
+  user_id: user_4.id,
+  question_id: Question.first.id,
+  game_id: game_2.id,
+)
+
+proposal_3= Proposal.create!(
+  proposal: "bliblublé",
+  user_id: user_3.id,
+  question_id: Question.first.id,
+  game_id: game_2.id,
+)
+
+puts 'Creating votes...'
+
+vote_1= Vote.create!(
+  user_id: user_5.id,
+  proposal_id: proposal_3.id,
+)
+
+vote_2= Vote.create!(
+  user_id: user_3.id,
+  proposal_id: proposal_2.id,
+)
+
+vote_3= Vote.create!(
+  user_id: user_4.id,
+  proposal_id: proposal_1.id,
 )
