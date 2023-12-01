@@ -1,7 +1,8 @@
 
 <%# <% @shuffled_array %>
 
-<ul>
+<div data-controller="autolink">
+  <ul>
   <%  @shuffled_array.each do |proposal| %>
     <% if proposal.class == Proposal %>
         <% if proposal.user_id == current_user.id %>
@@ -30,6 +31,7 @@
       </li>
     <% end %>
   <% end %>
-  
-  <%= link_to 'Accéder aux scores',  game_path(@game, question: @index) %>
-</ul>
+  <div data-controller="autolink">
+    <%=link_to 'Accéder aux scores', game_path(@game, question: @index), data: {autolink_target:"link" }, class: "d-none" %>
+  </ul>
+</div>

@@ -26,6 +26,12 @@
 
 <% if @game.status == "running" %>
 
+<% if params[:question] == "2" %>
+  <h2>Partie terminée</h2>
+<% else %>
+  <h2>Manche <%=params[:question].to_i + 1 %> terminée</h2>
+<% end %>
+
   <% @avatars.each do |avatar| %>
     <% @proposals.each do |proposal| %>
       <% if proposal.user_id == avatar.user_id %>
@@ -41,8 +47,11 @@
       <% else %>
         <% if params[:question] == "2" %>
           <%= button_to "Retour à l'accueil", game_path(@game, status: "finished"),method: :patch %>
+
         <% else %>
-          <%= link_to "manche suivante", game_path(@game, question: params[:question].to_i + 1)  %>
+          <div data-controller="autolink">
+          <%= link_to "manche suivante", game_path(@game, question: params[:question].to_i + 1), data: {autolink_target:"link_two" }, class: "d-none"  %>
+          </div>
         <% end %>
       <% end %>
 <% end %>
