@@ -1,10 +1,12 @@
 <%# # en tant qu'utilisateur je peux voir la question %>
+
 <div class = "container">
   <h1><%= @question.question %></h1>
-  <br>
-  <%# # donner ma réponse à la question %>
+<br>
+<%# # donner ma réponse à la question %>
+<div data-controller="submit_automatic">
   <%= simple_form_for([@game, @question, @proposal]) do |f| %>
-    <%= f.input :proposal, input_html: { class: "user-input" } %>
+    <%= f.input :proposal, input_html: { class: "user-input"}%>
     <%= f.submit %>
   <% end %>
 </div>
