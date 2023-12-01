@@ -2,9 +2,9 @@
 <%= @question.question %>
 <br>
 <%# # donner ma réponse à la question %>
-<div data-controller="submit_automatic">
-  <%= simple_form_for([@game, @question, @proposal]) do |f| %>
+<div data-controller="submit-automatic">
+  <%= simple_form_for([@game, @question, @proposal], data: {submit_automatic_target: "form" }) do |f| %>
     <%= f.input :proposal %>
-    <%= f.submit %>
+    <% f.submit %>
   <% end %>
 </div>

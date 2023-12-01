@@ -4,14 +4,18 @@
 <ul>
   <%  @shuffled_array.each do |proposal| %>
     <% if proposal.class == Proposal %>
-      <li>
-      <%= simple_form_for [proposal,Vote.new] do |f| %>
-        <div class="d-none">
-            <%= f.input :question_id, input_html: {value: @question.id} %>
-            <%= f.input :proposal_id, input_html: {value: proposal.id} %>
-        </div>
-        <%= proposal.proposal %>
-        <%= f.submit 'Valider' %>
+        <% if proposal.user_id == current_user.id %>
+          <% proposal %>
+        <% else %>
+          <li>
+          <%= simple_form_for [proposal,Vote.new] do |f| %>
+            <div class="d-none">
+                <%= f.input :question_id, input_html: {value: @question.id} %>
+                <%= f.input :proposal_id, input_html: {value: proposal.id} %>
+            </div>
+            <%= proposal.proposal %>
+            <%= f.submit 'Valider' %>
+            <% end %>
         <% end %>
       </li>
     <% else %>

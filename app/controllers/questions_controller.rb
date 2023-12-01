@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
-    @all = @question.proposals.where.not(user_id: current_user.id).where(game_id: params[:game_id])
+    @all = @question.proposals
     @array = @all.to_a
     @array << @question
     @shuffled_array = @array.shuffle!

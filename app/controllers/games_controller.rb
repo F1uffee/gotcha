@@ -28,6 +28,7 @@ class GamesController < ApplicationController
     else
       @question = @game.questions[params[:question].to_i]
     end
+    
       if @game.status == "running" && @question.proposals.empty?
         redirect_to new_game_question_proposal_path(@game, @question)
       end
