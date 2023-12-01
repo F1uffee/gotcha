@@ -15,6 +15,6 @@ class VotesController < ApplicationController
     @vote.user = current_user
     @vote.question = Question.find(params[:vote][:question_id])
     @vote.proposal = Proposal.find(params[:proposal_id])
-    @vote.save
+    @vote.save!
   end
 end
