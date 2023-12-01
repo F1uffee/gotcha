@@ -1,5 +1,7 @@
 <%# # en tant qu'utilisateur je peux voir la question %>
-<%= @question.question %>
+
+<div class = "container">
+  <h1><%= @question.question %></h1>
 <br>
 <%# # donner ma réponse à la question %>
 <div data-controller="submit-automatic">

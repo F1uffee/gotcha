@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_30_095135) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_01_105209) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_095135) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.bigint "user_id"
+    t.integer "selected_avatar"
     t.integer "score", default: 0, null: false
     t.index ["user_id"], name: "index_avatars_on_user_id"
   end
@@ -113,10 +114,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_095135) do
 
   create_table "votes", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "proposal_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "question_id"
+    t.bigint "proposal_id"
     t.index ["proposal_id"], name: "index_votes_on_proposal_id"
     t.index ["question_id"], name: "index_votes_on_question_id"
     t.index ["user_id"], name: "index_votes_on_user_id"

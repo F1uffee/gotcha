@@ -20,7 +20,7 @@
   <% end %>
 
   <% if @game.user_id == current_user.id %>
-    <%= button_to "Lancer la partie", game_path(@game, status: "running"),method: :patch %>
+    <%= button_to "Lancer la partie", game_path(@game, status: "running"),method: :patch%>
   <% end %>
 <% end %>
 
