@@ -16,4 +16,9 @@ class VotesController < ApplicationController
     @vote.proposal = Proposal.find(params[:proposal_id])
     @vote.save!
   end
+
+  def destroy
+    @game = Game.find(params[:game_id])
+    @game.questions_vote.destroy
+  end
 end

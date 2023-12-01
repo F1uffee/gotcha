@@ -22,42 +22,34 @@
   <% if @game.user_id == current_user.id %>
     <%= button_to "Lancer la partie", game_path(@game, status: "running"),method: :patch%>
   <% end %>
-
 <% end %>
 
 <% if @game.status == "running" %>
 
-<% @avatars.each do |avatar| %>
-  <% @proposals.each do |proposal| %>
-    <% if proposal.user_id == avatar.user_id %>
-    <%avatar.score += proposal.votes.count * 2 %>
+  <% @avatars.each do |avatar| %>
+    <% @proposals.each do |proposal| %>
+      <% if proposal.user_id == avatar.user_id %>
+      <%avatar.score += proposal.votes.count * 2 %>
+      <% end %>
     <% end %>
+    <li>  <%= avatar.name %> : <%= avatar.score %> points</li>
   <% end %>
-  <li>  <%= avatar.name %> : <%= avatar.score %> points</li>
-<% end %>
-  <li><%= @owner.name %> : <%= @owner.score %> points</li>
-  <div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <h2>Product name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
-  </div>
-</div>
+    <li><%= @owner.name %> : <%= @owner.score %> points</li>
 
+    <% vote= [] %>
+    <%  %>
+      <% questions = @game.questions %>
+      <% questions.each do |question| %>
+        <%= question.votes %>
+      <% end %>
 
-<br>
-<br>
-  <br>
-  <% vote= [] %>
-  <%  %>
-    <% questions = @game.questions %>
-    <% questions.each do |question| %>
-      <%= question.votes %>
-    <% end %>
-
-    <% if params[:question].nil? %>
-      <%= link_to "manche suivante", game_path(@game), class: "button-primary" %>
-    <% else %>
-      <%= link_to game_path(@game), question: params[:question].to_i + 1 %>
-    <% end %>
+      <% if params[:question].nil? %>
+        <%= link_to "manche suivante", game_path(@game) %>
+      <% else %>
+        <% if @question == @game.question[9] %>
+          <%= button_to "Retour à l'accueil", game_path(@game, status: "finished"),method: :patch %>
+        <% else %>
+          <%= link_to "manche suivante", game_path(@game, question: params[:question].to_i + 1)  %>
+        <% end %>
+      <% end %>
 <% end %>
