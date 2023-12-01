@@ -4,6 +4,6 @@
 <h1>BIENVENUE <%= @avatar.name.upcase %>!</h1>
 
 <%= simple_form_for(@game) do |f| %>
-    <%= f.input :name, label: 'DONNE UN NOM À TA PARTIE', placeholder: "Le super nom de ta partie"  %>
-    <%= f.button :submit, "Créer"%>
+    <%= f.input :name, label: 'DONNE UN NOM À TA PARTIE', placeholder: "Le super nom de ta partie", input_html: { class: "user-input" }  %>
+    <%= f.button :submit, "Créer", class: "button-primary"%>
   <% end %>
