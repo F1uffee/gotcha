@@ -9,4 +9,13 @@ class Game < ApplicationRecord
   has_many :questions, through: :rounds
   has_many :proposals
   has_many :users, through: :game_users
+
+  def questions_votes
+    out=[]
+    questions.each do |question|
+      out << question.votes
+      out.flatten
+    end
+    out.flatten
+  end
 end
