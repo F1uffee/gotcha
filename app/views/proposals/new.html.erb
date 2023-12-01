@@ -1,9 +1,10 @@
 <%# # en tant qu'utilisateur je peux voir la question %>
-
 <%= @question.question %>
 <br>
 <%# # donner ma réponse à la question %>
-<%= simple_form_for([@game, @question, @proposal]) do |f| %>
-  <%= f.input :proposal %>
-  <%= f.submit %>
-<% end %>
+<div data-controller="submit_automatic">
+  <%= simple_form_for([@game, @question, @proposal]) do |f| %>
+    <%= f.input :proposal %>
+    <%= f.submit %>
+  <% end %>
+</div>

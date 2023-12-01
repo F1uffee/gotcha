@@ -26,6 +26,7 @@
 <% end %>
 
 <% if @game.status == "running" %>
+
 <% @avatars.each do |avatar| %>
   <% @proposals.each do |proposal| %>
     <% if proposal.user_id == avatar.user_id %>
