@@ -11,7 +11,7 @@ class Game < ApplicationRecord
   has_many :users, through: :game_users
 
   def questions_votes
-    out=[]
+    out = []
     questions.each do |question|
       out << question.votes
       out.flatten

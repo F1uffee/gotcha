@@ -21,6 +21,10 @@ class ProposalsController < ApplicationController
     end
   end
 
+  def destroy
+    @game = Game.find(params[:game_id])
+  end
+
   # def index
   #   # @question = Question.find(params[:question_id])
   #   # @game = Game.find(params[:game_id])

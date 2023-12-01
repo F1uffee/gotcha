@@ -6,12 +6,13 @@
       <h1>Question</h1>
     <p><%= @question.question %></p>
   </div>
-  <br>
-  <%# # donner ma réponse à la question %>
-  <div data-controller="submit_automatic">
-  <%= simple_form_for([@game, @question, @proposal]) do |f| %>
-    <%= f.input :proposal, input_html: { class: "user-input"}%>
-    <%= f.submit %>
+<br>
+<%# # donner ma réponse à la question %>
+<div data-controller="submit-automatic">
+  <%= simple_form_for([@game, @question, @proposal], data: {submit_automatic_target: "form" }) do |f| %>
+    <%= f.input :proposal %>
+    <% f.submit %>
+
   <% end %>
   </div>
 </div>
