@@ -5,3 +5,4 @@
 //= link popper.js
 //= link bootstrap.min.js
 //= require bootstrap
+//= link manifest.json
