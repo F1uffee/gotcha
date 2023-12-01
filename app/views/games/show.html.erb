@@ -36,17 +36,10 @@
   <% end %>
     <li><%= @owner.name %> : <%= @owner.score %> points</li>
 
-    <% vote= [] %>
-    <%  %>
-      <% questions = @game.questions %>
-      <% questions.each do |question| %>
-        <%= question.votes %>
-      <% end %>
-
       <% if params[:question].nil? %>
         <%= link_to "manche suivante", game_path(@game) %>
       <% else %>
-        <% if @question == @game.question[9] %>
+        <% if params[:question] == "2" %>
           <%= button_to "Retour à l'accueil", game_path(@game, status: "finished"),method: :patch %>
         <% else %>
           <%= link_to "manche suivante", game_path(@game, question: params[:question].to_i + 1)  %>
