@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["link", "link_two"]
 
   connect() {
-    const delayInMillis = 5000;
+    const delayInMillis = 15000;
     setTimeout(() =>this.linkTarget.click(), delayInMillis);
     setTimeout(() =>this.link_twoTarget.click(), delayInMillis);
   }
