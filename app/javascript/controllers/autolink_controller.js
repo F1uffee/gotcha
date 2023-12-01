@@ -1,11 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="submit-automatic"
+// Connects to data-controller="autolink"
 export default class extends Controller {
-  static targets = ["form"]
+  static targets = ["link"]
 
   connect() {
-    const delayInMillis = 20000;
+    const delayInMillis = 10000;
     setTimeout(() =>this.formTarget.submit(), delayInMillis);
   }
 }
