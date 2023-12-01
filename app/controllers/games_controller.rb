@@ -47,11 +47,11 @@ class GamesController < ApplicationController
     @question = @game.questions[0]
     @game.update(status:params[:status])
     if @game.status == "running"
-    redirect_to new_game_question_proposal_path(@game, @question)
+      redirect_to new_game_question_proposal_path(@game, @question)
     else
-    @game.proposals.destroy_all
-    redirect_to root_path
-    end 
+      @game.proposals.destroy_all
+      redirect_to root_path
+    end
   end
 
   private
