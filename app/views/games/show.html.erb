@@ -22,34 +22,34 @@
   <% if @game.user_id == current_user.id %>
     <%= button_to "Lancer la partie", game_path(@game, status: "running"),method: :patch %>
   <% end %>
-
 <% end %>
 
 <% if @game.status == "running" %>
-<% raise %>
 
-<% @avatars.each do |avatar| %>
-  <% @proposals.each do |proposal| %>
-    <% if proposal.user_id == avatar.user_id %>
-    <%avatar.score += proposal.votes.count * 2 %>
+  <% @avatars.each do |avatar| %>
+    <% @proposals.each do |proposal| %>
+      <% if proposal.user_id == avatar.user_id %>
+      <%avatar.score += proposal.votes.count * 2 %>
+      <% end %>
     <% end %>
+    <li>  <%= avatar.name %> : <%= avatar.score %> points</li>
   <% end %>
-  <li>  <%= avatar.name %> : <%= avatar.score %> points</li>
-<% end %>
-  <li><%= @owner.name %> : <%= @owner.score %> points</li>
-<br>
-<br>
-  <br>
-  <% vote= [] %>
-  <%  %>
-    <% questions = @game.questions %>
-    <% questions.each do |question| %>
-      <%= question.votes %>
-    <% end %>
+    <li><%= @owner.name %> : <%= @owner.score %> points</li>
 
-    <% if params[:question].nil? %>
-      <%= link_to "manche suivante", game_path(@game) %>
-    <% else %>
-      <%= link_to "manche suivante", game_path(@game), question: params[:question].to_i + 1 %>
-    <% end %>
+    <% vote= [] %>
+    <%  %>
+      <% questions = @game.questions %>
+      <% questions.each do |question| %>
+        <%= question.votes %>
+      <% end %>
+
+      <% if params[:question].nil? %>
+        <%= link_to "manche suivante", game_path(@game) %>
+      <% else %>
+        <% if @question == @game.question[9] %>
+          <%= button_to "Retour à l'accueil", game_path(@game, status: "finished"),method: :patch %>
+        <% else %>
+          <%= link_to "manche suivante", game_path(@game, question: params[:question].to_i + 1)  %>
+        <% end %>
+      <% end %>
 <% end %>

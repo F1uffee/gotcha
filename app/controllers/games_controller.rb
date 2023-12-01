@@ -28,7 +28,7 @@ class GamesController < ApplicationController
     else
       @question = @game.questions[params[:question].to_i]
     end
-    
+
       if @game.status == "running" && @question.proposals.empty?
         redirect_to new_game_question_proposal_path(@game, @question)
       end
@@ -46,7 +46,12 @@ class GamesController < ApplicationController
     @game.status = params[:status]
     @question = @game.questions[0]
     @game.update(status:params[:status])
+    if @game.status == "running"
     redirect_to new_game_question_proposal_path(@game, @question)
+    else
+    @game.proposals.destroy_all
+    redirect_to root_path
+    end 
   end
 
   private
