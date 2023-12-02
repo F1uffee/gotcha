@@ -1,23 +1,26 @@
 
 <%# <% @shuffled_array %>
+<div class = "question-show-card">
+ <h1 id ="question-show">Fais ton choix</h1>
+ <div class = "choice-card", data-controller="autolink">
+    <ul>
+      <%  @shuffled_array.each do |proposal| %>
+        <% if proposal.class == Proposal %>
+            <% if proposal.user_id == current_user.id %>
+              <% proposal %>
 
-<div data-controller="autolink">
-  <ul>
-  <%  @shuffled_array.each do |proposal| %>
-    <% if proposal.class == Proposal %>
-        <% if proposal.user_id == current_user.id %>
-          <% proposal %>
         <% else %>
           <li>
-          <%= simple_form_for [proposal,Vote.new] do |f| %>
+            <%= simple_form_for [@all.first,Vote.new] do |f| %>
             <div class="d-none">
-                <%= f.input :question_id, input_html: {value: @question.id} %>
-                <%= f.input :proposal_id, input_html: {value: proposal.id} %>
+              <%= f.input :question_id, input_html: {value: @question.id} %>
             </div>
-            <%= proposal.proposal %>
+            <%= proposal.reponse %>
             <%= f.submit 'Valider' %>
             <% end %>
+          </li>
         <% end %>
+
       </li>
     <% else %>
       <li>
