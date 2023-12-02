@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     resources :proposals, only: [:index] do
       resources :votes, only: [:new, :create]
     end
+    resources :questions, only:[:index] do
+      resources :votes, only: [:new, :create]
+    end
   # Defines the root path route ("/")
   # root "posts#index"
 end

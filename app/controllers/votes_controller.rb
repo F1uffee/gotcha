@@ -12,8 +12,8 @@ class VotesController < ApplicationController
     # Vote.where(user: current_user, proposal: @proposal).destroy_all
     @vote = Vote.new
     @vote.user = current_user
-    @vote.question = Question.find(params[:vote][:question_id])
-    @vote.proposal = Proposal.find(params[:proposal_id])
+    @vote.question = Question.find(params[:vote][:question_id]) unless (params[:proposal_id])
+    @vote.proposal = Proposal.find(params[:proposal_id]) if (params[:proposal_id])
     @vote.save!
   end
 

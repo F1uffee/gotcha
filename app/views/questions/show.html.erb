@@ -21,7 +21,7 @@
       </li>
     <% else %>
       <li>
-        <%= simple_form_for [@all.first,Vote.new] do |f| %>
+        <%= simple_form_for [@question,Vote.new] do |f| %>
         <div class="d-none">
           <%= f.input :question_id, input_html: {value: @question.id} %>
         </div>
