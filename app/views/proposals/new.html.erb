@@ -9,11 +9,11 @@
 <br>
 <p>Tu as 20 secondes pour répondre</p>
 <%# # donner ma réponse à la question %>
+<%= simple_form_for([@game, @question, @proposal], data: {submit_automatic_target: "form" }) do |f| %>
+  <%= f.input :proposal %>
+  <% f.submit %>
+<% end %>
 <div data-controller="submit-automatic">
-  <%= simple_form_for([@game, @question, @proposal], data: {submit_automatic_target: "form" }) do |f| %>
-    <%= f.input :proposal %>
-    <% f.submit %>
 
-  <% end %>
   </div>
 </div>

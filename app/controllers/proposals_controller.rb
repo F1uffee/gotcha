@@ -13,9 +13,11 @@ class ProposalsController < ApplicationController
     @proposal.question = question
     game = Game.find(params[:game_id])
     @proposal.game = game
-    # game id
+    @participants = game.game_users.count.to_i + 1
     if @proposal.save
+      if question.proposals.count == @participants
       redirect_to game_question_path(game, question)
+      end 
     else
       render :new, status: :unprocessable_entity
     end
