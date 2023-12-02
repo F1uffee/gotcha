@@ -1,6 +1,5 @@
 
 <%# <% @shuffled_array %>
-
 <div data-controller="autolink">
   <ul>
   <%  @shuffled_array.each do |proposal| %>
@@ -21,7 +20,7 @@
       </li>
     <% else %>
       <li>
-        <%= simple_form_for [@question,Vote.new] do |f| %>
+        <%= simple_form_for [@game, @question,Vote.new] do |f| %>
         <div class="d-none">
           <%= f.input :question_id, input_html: {value: @question.id} %>
         </div>

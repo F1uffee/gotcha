@@ -1,6 +1,7 @@
 class VotesController < ApplicationController
 
   def create
+    @game = Game.find(params[:game_id])
     # @proposal = Proposal.find(params[:proposal_id])
     # recuperer le vote qui l'user_id question_id et supprimer le vote
     # règle des votes pour sélectionner les votes  à effacer
@@ -14,6 +15,7 @@ class VotesController < ApplicationController
     @vote.user = current_user
     @vote.question = Question.find(params[:vote][:question_id]) unless (params[:proposal_id])
     @vote.proposal = Proposal.find(params[:proposal_id]) if (params[:proposal_id])
+    @vote.game = Game.find(params[:game_id])
     @vote.save!
   end
 

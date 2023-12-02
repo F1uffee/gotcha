@@ -9,6 +9,7 @@ class Game < ApplicationRecord
   has_many :questions, through: :rounds
   has_many :proposals
   has_many :users, through: :game_users
+  has_many :votes
 
   def questions_votes
     out = []

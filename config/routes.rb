@@ -10,16 +10,14 @@ Rails.application.routes.draw do
   resources :games, only: [:new, :create, :edit, :update, :show] do
     resources :rounds, only: [:new, :create]
     resources :game_users, only: [:create]
-    resources :questions, only:[:show] do
+    resources :questions, only:[:show, :index] do
       resources :proposals, only: [:new, :create]
+      resources :votes, only: [:new, :create]
     end
   end
     resources :avatars, only: [:new, :create]
     resources :game_users, only: [:destroy]
     resources :proposals, only: [:index] do
-      resources :votes, only: [:new, :create]
-    end
-    resources :questions, only:[:index] do
       resources :votes, only: [:new, :create]
     end
   # Defines the root path route ("/")

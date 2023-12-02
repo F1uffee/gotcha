@@ -47,24 +47,29 @@ class GamesController < ApplicationController
 
     #  on calcule le score de chaque avatar
     @avatars.each do |avatar|
-      @avatar_proposals = Proposal.where(user_id: avatar.user_id )
+      # je definis une variable avatar_vote
+      @avatar_votes = Vote.where(game_id: @game.id, user_id: avatar.user_id, proposal_id: nil).to_a
+      # je vais eacher dessus et à chaque vote je vais rajouter 1 au score de l'avatar
+      @avatar_votes.each do |vote|
+        avatar.score += 1
+      end
+      @avatar_proposals = Proposal.where(user_id: avatar.user_id, game_id: @game.id).to_a
       @avatar_proposals.each do |proposal|
         avatar.score += proposal.votes.count * 2
       end
-      # je definir une variable avatar_vote = Vote.where(game_id:@game.id, user_id: avatar.user_id)
-      # je vais selectionner uniquement ceux qui ont un question_id non nil
-      # je vais eacher dessus et à chaque vote je vais rajouter 1 au score de l'avatar
-
     end
 
     # on calcule le score de l'owner
-    @owner_proposals = Proposal.where(user_id: @owner.user_id )
+    @owner_proposals = Proposal.where(user_id: @owner.user_id, game_id: @game.id).to_a
     @owner_proposals.each do |proposal|
       @owner.score += proposal.votes.count * 2
     end
-    # je definir une variable owner_vote = Vote.where(game_id:@game.id, user_id: @owner.user_id)
-    # je vais selectionner uniquement ceux qui ont un question_id non nil
+    # je definis une variable owner_vote
+    @owner_votes = Vote.where(game_id: @game.id, user_id: @owner.user_id, proposal_id: nil).to_a
     # je vais eacher dessus et à chaque vote je vais rajouter 1 au score de l'owner
+    @owner_votes.each do |vote|
+      @owner.score += 1
+    end
   end
 
   def update
