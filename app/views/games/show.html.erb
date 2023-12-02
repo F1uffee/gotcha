@@ -1,4 +1,4 @@
-<%# Il faudrait rajouter le fait qu'on peut pas accéder à cette page si on ne fait pas partie du game_user de cette game %>
+<%# 1/ PARTIE PENDING %>
 <% if @game.status == "pending" %>
   <H1>EN ATTENTE DE JOUEURS....</H1>
 
@@ -11,6 +11,7 @@
   <% end %>
 </div>
 
+<%# Affichage des joueurs%>
   <%= @owner.name %>
   <%= image_tag("avatars/#{@owner.url}.png") %>
 
@@ -19,33 +20,39 @@
     <%= image_tag("avatars/#{avatar.url}.png") %>
   <% end %>
 
+<%# Bouton lancer la partie pour owner %>
   <% if @game.user_id == current_user.id %>
     <%= button_to "Lancer la partie", game_path(@game, status: "running"),method: :patch%>
   <% end %>
 <% end %>
 
+<%# 2/ PARTIE RUNNING %>
 <% if @game.status == "running" %>
 
+<%# Titre "Manche xx" terminée ou partie terminée %>
 <% if params[:question] == "2" %>
   <h2>Partie terminée</h2>
 <% else %>
   <h2>Manche <%=params[:question].to_i + 1 %> terminée</h2>
 <% end %>
+
+<%# Affichage des scores %>
   <% @avatars.each do |avatar| %>
     <li><%= avatar.name %> : <%= avatar.score %> points</li>
   <% end %>
     <li><%= @owner.name %> : <%= @owner.score %> points</li>
 
-      <% if params[:question].nil? %>
-        <%= link_to "manche suivante", game_path(@game) %>
-      <% else %>
-        <% if params[:question] == "2" %>
-          <%= button_to "Retour à l'accueil", game_path(@game, status: "finished"),method: :patch %>
+<%# Redirection et bouton retour à l'accueil en fin de partie %>
+<% if params[:question].nil? %>
+  <%= link_to "manche suivante", game_path(@game) %>
+<% else %>
+  <% if params[:question] == "2" %>
+    <%= button_to "Retour à l'accueil", game_path(@game, status: "finished"),method: :patch %>
 
-        <% else %>
-          <div data-controller="autolink">
-          <%= link_to "manche suivante", game_path(@game, question: params[:question].to_i + 1), data: {autolink_target:"link_two" }, class: "d-none"  %>
-          </div>
-        <% end %>
-      <% end %>
+  <% else %>
+    <div data-controller="autolink">
+    <%= link_to "manche suivante", game_path(@game, question: params[:question].to_i + 1), data: {autolink_target:"link_two" }, class: "d-none"  %>
+    </div>
+  <% end %>
+<% end %>
 <% end %>

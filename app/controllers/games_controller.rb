@@ -33,23 +33,38 @@ class GamesController < ApplicationController
         redirect_to new_game_question_proposal_path(@game, @question)
       end
 
-    #  on définit la variable avatars la game
+    #  on définit la variable avatars
     @game_users = @game.game_users
     @avatars = @game_users.map do |game_user|
       @avatar = Avatar.where(user_id: game_user.user_id).last
     end
 
-    #  on définit un array de totues les propositions du jeu
-    @proposals = @game.proposals.to_a
+    # on définit la variable owner
+    @owner = Avatar.where(user_id: @game.user_id).last
 
-    #  on définit la variable avatar.score
+    #  on définit un array de toutes les propositions du jeu
+    @proposals = Proposal.where(game_id: @game.id).to_a
+
+    #  on calcule le score de chaque avatar
     @avatars.each do |avatar|
       @avatar_proposals = Proposal.where(user_id: avatar.user_id )
       @avatar_proposals.each do |proposal|
         avatar.score += proposal.votes.count * 2
       end
+      # je definir une variable avatar_vote = Vote.where(game_id:@game.id, user_id: avatar.user_id)
+      # je vais selectionner uniquement ceux qui ont un question_id non nil
+      # je vais eacher dessus et à chaque vote je vais rajouter 1 au score de l'avatar
+
     end
-    @owner = Avatar.where(user_id: @game.user_id).last
+
+    # on calcule le score de l'owner
+    @owner_proposals = Proposal.where(user_id: @owner.user_id )
+    @owner_proposals.each do |proposal|
+      @owner.score += proposal.votes.count * 2
+    end
+    # je definir une variable owner_vote = Vote.where(game_id:@game.id, user_id: @owner.user_id)
+    # je vais selectionner uniquement ceux qui ont un question_id non nil
+    # je vais eacher dessus et à chaque vote je vais rajouter 1 au score de l'owner
   end
 
   def update
