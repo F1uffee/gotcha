@@ -20,24 +20,35 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    # unless @game.user_id == current_user.id || current_user.game_users.where(game_id: @game.id)
-    #   redirect_to root_path
-    # end
+
+    #  on donne un index à la question
     if params[:question].nil?
       @question = @game.questions[0]
     else
       @question = @game.questions[params[:question].to_i]
     end
 
+    # on gère la redirection à chaque manche
       if @game.status == "running" && @question.proposals.empty?
         redirect_to new_game_question_proposal_path(@game, @question)
       end
+
+    #  on définit la variable avatars la game
     @game_users = @game.game_users
     @avatars = @game_users.map do |game_user|
       @avatar = Avatar.where(user_id: game_user.user_id).last
     end
+
+    #  on définit un array de totues les propositions du jeu
     @proposals = @game.proposals.to_a
 
+    #  on définit la variable avatar.score
+    @avatars.each do |avatar|
+      @avatar_proposals = Proposal.where(user_id: avatar.user_id )
+      @avatar_proposals.each do |proposal|
+        avatar.score += proposal.votes.count * 2
+      end
+    end
     @owner = Avatar.where(user_id: @game.user_id).last
   end
 
