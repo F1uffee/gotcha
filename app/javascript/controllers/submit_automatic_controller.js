@@ -5,7 +5,8 @@ export default class extends Controller {
   static targets = ["form"]
 
   connect() {
-    const delayInMillis = 30000;
+    const delayInMillis = 5000;
+    console.log(this.formTarget);
     setTimeout(() =>this.formTarget.submit(), delayInMillis);
   }
 }
