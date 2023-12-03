@@ -7,6 +7,5 @@ class QuestionsController < ApplicationController
     @shuffled_array = @array.shuffle!
     @game = Game.find(params[:game_id])
     @index = @game.questions.to_a.index(@question)
-    raise
   end
 end
