@@ -47,25 +47,28 @@ class GamesController < ApplicationController
 
     #  on calcule le score de chaque avatar
     @avatars.each do |avatar|
-      # je definis une variable avatar_vote
-      @avatar_votes = Vote.where(game_id: @game.id, user_id: avatar.user_id, proposal_id: nil).to_a
+      # je definis une variable avatar_vote qui correspond aux votes qu'à fait l'avatar sur la bonne réponse
+      @avatar_votes = Vote.where(game_id: @game.id, user_id: avatar.user_id, proposal_id: nil)
       # je vais eacher dessus et à chaque vote je vais rajouter 1 au score de l'avatar
       @avatar_votes.each do |vote|
         avatar.score += 1
       end
-      @avatar_proposals = Proposal.where(user_id: avatar.user_id, game_id: @game.id).to_a
+      # je definis une variable avatar_proposals qui correspond aux propositions faites par l'avatar
+      @avatar_proposals = Proposal.where(user_id: avatar.user_id, game_id: @game.id)
+      # je vais eacher dessus et rajouter 2 points au score de l'avatar pour chaque vote sur cette proposition
       @avatar_proposals.each do |proposal|
         avatar.score += proposal.votes.count * 2
       end
     end
 
     # on calcule le score de l'owner
-    @owner_proposals = Proposal.where(user_id: @owner.user_id, game_id: @game.id).to_a
+    @owner_proposals = Proposal.where(user_id: @owner.user_id, game_id: @game.id)
     @owner_proposals.each do |proposal|
       @owner.score += proposal.votes.count * 2
+      #  c'est cette ligne de code qui ne marche pas alors qu'elle marchait avant!
     end
     # je definis une variable owner_vote
-    @owner_votes = Vote.where(game_id: @game.id, user_id: @owner.user_id, proposal_id: nil).to_a
+    @owner_votes = Vote.where(game_id: @game.id, user_id: @owner.user_id, proposal_id: nil)
     # je vais eacher dessus et à chaque vote je vais rajouter 1 au score de l'owner
     @owner_votes.each do |vote|
       @owner.score += 1
