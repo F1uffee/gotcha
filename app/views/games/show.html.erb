@@ -20,7 +20,6 @@
 
 <%# Affichage des joueurs%>
 <%= render "avatars" %>
-<br>
 
   <%# Bouton lancer la partie pour owner %>
   <% if @game.user_id == current_user.id %>
@@ -47,16 +46,15 @@
       </div>
       </div>
         <% @avatars.each do |avatar| %>
-        <div class="player-card">
-          <%= image_tag("avatars/#{avatar.url}.png") %>
-            <div class="pseudo">
-              <%= avatar.name %> : <%= avatar.score %> points
-            </div>
+          <div class="player-card">
+            <%= image_tag("avatars/#{avatar.url}.png") %>
+              <div class="pseudo">
+                <%= avatar.name %> : <%= avatar.score %> points
+              </div>
+          <% end %>
         </div>
-        <% end %>
-      </div>
-    </div>
   </div>
+
 
   <%# Redirection et bouton retour à l'accueil en fin de partie %>
   <% if params[:question].nil? %>
