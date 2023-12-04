@@ -2,19 +2,19 @@
 
 <div class = "container">
     <h1>Invente une réponse à la question</h1>
-  <div class= "question-card">
-    <p>Question</p>
-    <p><%= @question.question %></p>
-  </div>
-  
-<br>
-<p>Tu as 20 secondes pour répondre</p>
-<%# # donner ma réponse à la question %>
-<%= simple_form_for([@game, @question, @proposal], data: {submit_automatic_target: "form" }) do |f| %>
-  <%= f.input :proposal, input_html: { class: "user-input",placeholder:"Ta super proposition" } %>
-  <%= f.button :submit, "Valider ma proposition", class: "button-primary"%>
-<% end %>
-<div data-controller="autolink">
-  <%= link_to "redirection", game_question_path(@game, @question), data: {autolink_target:"link_three"}, class: "d-none"  %>
+    <div class= "question-card">
+      <h3>Question</h3>
+      <p><%= @question.question %></p>
+    </div>
 
+  <br>
+  <p id = "p-proposal-new"><em>Tu as 20 secondes pour répondre</em></p>
+  <%# # donner ma réponse à la question %>
+  <%= simple_form_for([@game, @question, @proposal], data: {submit_automatic_target: "form" }) do |f| %>
+    <%= f.input :proposal, input_html: { class: "user-input",placeholder:"Ta super proposition" } %>
+    <%= f.button :submit, "Valider ma proposition", class: "button-primary"%>
+  <% end %>
+  <div data-controller="autolink">
+    <%= link_to "redirection", game_question_path(@game, @question), data: {autolink_target:"link_three"}, class: "d-none"  %>
+  </div>
 </div>
