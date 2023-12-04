@@ -95,27 +95,29 @@
   <br>
   <h2>COMMENT JOUER ?</h2>
 
-<div id="tutorial" class="carousel slide carousel-fade" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button id="btn-tuto" type="button" data-bs-target="#tutorial" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button id="btn-tuto" type="button" data-bs-target="#tutorial" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button id="btn-tuto" type="button" data-bs-target="#tutorial" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  <div id="tutorial" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button id="btn-tuto" type="button" data-bs-target="#tutorial" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button id="btn-tuto" type="button" data-bs-target="#tutorial" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button id="btn-tuto" type="button" data-bs-target="#tutorial" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag "carousel/carousel1.png" %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag "carousel/carousel2.png" %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag "carousel/carousel3.png" %>
+      </div>
+    </div>
+    <br>
   </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <p id="rule" class="d-block w-100">RÈGLE 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error ducimus accusamus ad, cupiditate accusantium autem earum!</p>
-      <br>
-    </div>
-    <div class="carousel-item">
-      <p id="rule" class="d-block w-100">RÈGLE 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error ducimus accusamus ad, cupiditate accusantium autem earum!</p>
-      <br>
-    </div>
-    <div class="carousel-item">
-      <p id="rule" class="d-block w-100">RÈGLE 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error ducimus accusamus ad, cupiditate accusantium autem earum!</p>
-      <br>
-    </div>
+  <br>
+
+    <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "button-primary" %>
   </div>
 </div>
 
-  <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "button-primary" %>
 </div>
