@@ -65,7 +65,6 @@ class GamesController < ApplicationController
     @owner_proposals = Proposal.where(user_id: @owner.user_id, game_id: @game.id)
     @owner_proposals.each do |proposal|
       @owner.score += proposal.votes.count * 2
-      #  c'est cette ligne de code qui ne marche pas alors qu'elle marchait avant!
     end
     # je definis une variable owner_vote
     @owner_votes = Vote.where(game_id: @game.id, user_id: @owner.user_id, proposal_id: nil)
