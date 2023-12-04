@@ -14,30 +14,8 @@
 </div>
 
 <%# Affichage des joueurs%>
-  <div class="container-player-cards">
-    <div class="player-card" id="<%= @owner.color %>">
-      <%= image_tag("avatars/#{@owner.url}.png") %>
-      <div class="pseudo">
-      <%= @owner.name%>
-      </div>
-      </div>
-      <% @avatars.each do |avatar| %>
-      <div class="player-card" id="<%= avatar.color %>">
-        <%= image_tag("avatars/#{avatar.url}.png") %>
-        <div class="pseudo">
-        <%= avatar.name %>
-        </div>
-      </div>
-      <% end %>
-  </div>
-<br>
-
-  <%# Bouton lancer la partie pour owner %>
-  <% if @game.user_id == current_user.id %>
-    <%= button_to "Lancer la partie", game_path(@game, status: "running"),method: :patch, class: "button-primary"%>
-  <% end %>
+<%= render "avatars" %>
 <% end %>
-
 <%# 2/ PARTIE RUNNING %>
 <% if @game.status == "running" %>
 <%# Titre "Manche xx" terminée ou partie terminée %>
