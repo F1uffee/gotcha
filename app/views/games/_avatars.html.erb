@@ -1,0 +1,13 @@
+<div class="container-player-cards">
+    <div class="player-card" id="<%= @owner.color %>">
+      <%= image_tag("avatars/#{@owner.url}.png") %>
+      <div class="pseudo">
+      <%= @owner.name%>
+      </div>
+    </div>
+    <div id="avatars">
+      <% @avatars.each do |avatar| %>
+        <%= render "avatar", avatar: avatar %>
+      <% end %>
+    </div>
+  </div>

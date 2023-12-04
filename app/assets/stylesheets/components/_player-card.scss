@@ -8,7 +8,7 @@
 
 .pseudo{
   display: flex;
-  color: white;
+  color: $dark-blue;
   font-family: 'Quicksand', sans-serif;
   font-size: 20px;
 }
@@ -21,10 +21,70 @@
   margin-right: 25px;
 }
 
-.player-card{
+#pastel-red{
   border-radius: 10px;
   display: flex;
-  background-color: rgb(255, 137, 156);
+  background-color: $pastel-red;
+  width: 90%;
+  height: 100px;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#pastel-blue{
+  border-radius: 10px;
+  display: flex;
+  background-color: $pastel-blue;
+  width: 90%;
+  height: 100px;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#pastel-yellow{
+  border-radius: 10px;
+  display: flex;
+  background-color: $pastel-yellow;
+  width: 90%;
+  height: 100px;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#pastel-green{
+  border-radius: 10px;
+  display: flex;
+  background-color: $pastel-green;
+  width: 90%;
+  height: 100px;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#pastel-cyan{
+  border-radius: 10px;
+  display: flex;
+  background-color: $pastel-cyan;
+  width: 90%;
+  height: 100px;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#pastel-pink{
+  border-radius: 10px;
+  display: flex;
+  background-color: $pastel-pink;
   width: 90%;
   height: 100px;
   align-items: center;
