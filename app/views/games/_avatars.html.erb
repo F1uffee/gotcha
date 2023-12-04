@@ -1,5 +1,5 @@
 <div class="container-player-cards">
-    <div class="player-card" id="<%= @owner.color %>">
+    <div class="player-card <%= @owner.color %>">
       <%= image_tag("avatars/#{@owner.url}.png") %>
       <div class="pseudo">
       <%= @owner.name%>

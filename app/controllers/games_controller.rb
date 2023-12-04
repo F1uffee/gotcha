@@ -36,12 +36,12 @@ class GamesController < ApplicationController
     #  on définit la variable avatars
     @game_users = @game.game_users
     @avatars = @game_users.map do |game_user|
-      @avatar = Avatar.where(user_id: game_user.user_id).last
+      @avatar = Avatar.where(user: game_user.user).last
     end
-    @avatars.each_with_index do |avatar, index|
-      player_colors = %w(pastel-yellow pastel-red pastel-blue pastel-pink pastel-cyan)
-      avatar.color = player_colors[index]
-    end
+    # @avatars.each_with_index do |avatar, index|
+    #   player_colors = %w(pastel-yellow pastel-red pastel-blue pastel-pink pastel-cyan)
+    #   avatar.color = player_colors[index]
+    # end
 
     # on définit la variable owner
     @owner = Avatar.where(user_id: @game.user_id).last
