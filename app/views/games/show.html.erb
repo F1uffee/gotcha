@@ -1,4 +1,9 @@
 <%# 1/ PARTIE PENDING %>
+
+<%= turbo_stream_from "avatars" %>
+<%= turbo_stream_from "redirect" %>
+
+
 <% if @game.status == "pending" %>
   <h1>EN ATTENTE DE JOUEURS....</h1>
 <br>
@@ -14,25 +19,14 @@
 </div>
 
 <%# Affichage des joueurs%>
-  <div class="container-player-cards">
-    <div class="player-card">
-      <%= image_tag("avatars/#{@owner.url}.png") %>
-      <div class="pseudo">
-      <%= @owner.name%>
-      </div>
-      <% @avatars.each do |avatar| %>
-        <%= image_tag("avatars/#{avatar.url}.png") %>
-        <div class="pseudo">
-        <%= avatar.name %>
-        </div>
-      <% end %>
-    </div>
-  </div>
+<%= render "avatars" %>
 <br>
 
   <%# Bouton lancer la partie pour owner %>
   <% if @game.user_id == current_user.id %>
-    <%= button_to "Lancer la partie", game_path(@game, status: "running"),method: :patch, class: "button-primary"%>
+    <div id="redirect">
+      <%= button_to "Lancer la partie", game_path(@game, status: "running"),method: :patch, class: "button-primary"%>
+    </div>
   <% end %>
 <% end %>
 
