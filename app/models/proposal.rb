@@ -3,4 +3,18 @@ class Proposal < ApplicationRecord
   belongs_to :question
   belongs_to :game
   has_many :votes, dependent: :destroy
+
+  # after_create_commit -> { :redirect_after_proposal }
+  after_commit :redirect_after_proposal, on: :create
+
+  def redirect_after_proposal
+    # raise
+    if self.game.proposals.count % self.game.number_of_players == 0
+      round_number = self.game.proposals_quantity / self.game.number_of_players
+      broadcast_prepend_to "redirect", partial: "proposals/redirect_after_create_proposal", locals: { game: self.game, question: self.game.questions[round_number] }, target: "redirect"
+    else
+      return
+    end
+  end
+
 end

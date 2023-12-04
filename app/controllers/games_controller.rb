@@ -36,12 +36,12 @@ class GamesController < ApplicationController
     #  on définit la variable avatars
     @game_users = @game.game_users
     @avatars = @game_users.map do |game_user|
-      @avatar = Avatar.where(user_id: game_user.user_id).last
+      @avatar = Avatar.where(user: game_user.user).last
     end
-    @avatars.each_with_index do |avatar, index|
-      player_colors = %w(pastel-yellow pastel-red pastel-blue pastel-pink pastel-cyan)
-      avatar.color = player_colors[index]
-    end
+    # @avatars.each_with_index do |avatar, index|
+    #   player_colors = %w(pastel-yellow pastel-red pastel-blue pastel-pink pastel-cyan)
+    #   avatar.color = player_colors[index]
+    # end
 
     # on définit la variable owner
     @owner = Avatar.where(user_id: @game.user_id).last
@@ -83,6 +83,7 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @game.status = params[:status]
     @question = @game.questions[0]
+    @game.number_of_players = @game.game_users.count + 1
     @game.update(status:params[:status])
     if @game.status == "running"
       redirect_to new_game_question_proposal_path(@game, @question)
@@ -94,7 +95,7 @@ class GamesController < ApplicationController
 
   private
   def params_game
-    params.require(:game).permit(:name, :status)
+    params.require(:game).permit(:name, :status, :proposals_quantity, :number_of_players)
   end
 
 end
