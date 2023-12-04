@@ -1,4 +1,5 @@
 <%# # en tant qu'utilisateur je peux voir la question %>
+<%= turbo_stream_from "redirect" %>
 
 <div class = "container">
     <h1>Invente une réponse à la question</h1>
@@ -18,4 +19,7 @@
   <%= link_to "redirection", game_question_path(@game, @question), data: {autolink_target:"link_three"}, class: "d-none"  %>
 <%# </div> %>
 
-  <%= link_to "voir les propositions", game_question_path(@game, @question)%>
+    <div id="redirect">
+    </div>
+
+  <%# <%= link_to "voir les propositions", game_question_path(@game, @question)%>

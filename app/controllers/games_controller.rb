@@ -78,6 +78,7 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @game.status = params[:status]
     @question = @game.questions[0]
+    @game.number_of_players = @game.game_users.count + 1
     @game.update(status:params[:status])
     if @game.status == "running"
       redirect_to new_game_question_proposal_path(@game, @question)
@@ -89,7 +90,7 @@ class GamesController < ApplicationController
 
   private
   def params_game
-    params.require(:game).permit(:name, :status)
+    params.require(:game).permit(:name, :status, :proposals_quantity, :number_of_players)
   end
 
 end
