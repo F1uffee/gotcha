@@ -1,0 +1,34 @@
+#container-player-cards{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.pseudo{
+  display: flex;
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+}
+
+.player-card img{
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.player-card{
+  border-radius: 10px;
+  display: flex;
+  background-color: rgb(255, 137, 156);
+  width: 90%;
+  height: 100px;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}

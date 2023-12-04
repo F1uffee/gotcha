@@ -4,18 +4,79 @@
   width: 25%; /* Adjust the width as needed */
   margin: auto;
 }
-
+.img-gotcha img{
+  width: 50%;
+  display: block;
+  margin: auto;
+}
 
 .container h1{
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   font-family: 'Quicksand', sans-serif;
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
+  color: white;
+}
+
+.avatar-choice {
+  margin-left: 55px;
+}
+
+.grid-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.avatar-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  input[type="radio"]{
+    visibility:hidden;
+  };
+  input[type=radio]:checked + label > img {
+    transform: scale(1.25);
+    border: solid $lagoon;
+}
+}
+
+.avatar-item img {
+  width: 60%;
+  border-radius: 50%;
+}
+
+.carousel{
+  margin-bottom: 20px;
 }
 
 .container h2{
   font-family: 'Quicksand', sans-serif;
   font-size: 20px;
   text-align: center;
+  color: white;
+}
+
+.form-label{
+  display: none;
+}
+
+::placeholder{
+  font-family: 'Quicksand', sans-serif;
+  font-style: italic;
+  text-align: center;
+}
+
+#rule{
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+}
+
+.carousel-item{
+  margin-bottom: 10px;
 }

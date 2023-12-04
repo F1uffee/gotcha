@@ -1,7 +1,8 @@
 
 <%# <% @shuffled_array %>
-<div data-controller="autolink">
-  <ul>
+<div class = "question-show-card">
+ <h1 id ="question-show">Fais ton choix</h1>
+ <div class = "choice-card", data-controller="autolink">
   <%  @shuffled_array.each do |proposal| %>
     <% if proposal.class == Proposal %>
         <% if proposal.user_id == current_user.id %>
@@ -25,6 +26,7 @@
             <%# <% end %>
           <%# <% end %>
         <% end %>
+
       </li>
     <% else %>
       <li>
