@@ -1,0 +1,42 @@
+.choice-card {
+  border: 5px solid #21ABA5;
+  background-color: #21ABA5;
+  border-radius: 10px;
+  display: flex;
+  width: 90%;
+  height: 66px;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  color: white;
+  list-style: none;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 22px;
+  padding: 0px;
+}
+
+
+.submit {
+  border: 5px solid #21ABA5;
+  background-color: #21ABA5;
+  border-radius: 10px;
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  color: white;
+  list-style: none;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 22px;
+  padding: 0px;
+}
+
+.submit:active {
+  transform: scale(1.25);
+  border: solid $lagoon;
+}
+
+.submit:hover {
+  border-color: white;
+}
