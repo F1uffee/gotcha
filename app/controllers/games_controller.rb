@@ -38,9 +38,14 @@ class GamesController < ApplicationController
     @avatars = @game_users.map do |game_user|
       @avatar = Avatar.where(user_id: game_user.user_id).last
     end
+    @avatars.each_with_index do |avatar, index|
+      player_colors = %w(pastel-yellow pastel-red pastel-blue pastel-pink pastel-cyan)
+      avatar.color = player_colors[index]
+    end
 
     # on définit la variable owner
     @owner = Avatar.where(user_id: @game.user_id).last
+    @owner.color = "pastel-green"
 
     #  on définit un array de toutes les propositions du jeu
     @proposals = Proposal.where(game_id: @game.id).to_a

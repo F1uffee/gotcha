@@ -49,6 +49,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_141936) do
     t.string "name"
     t.bigint "user_id"
     t.integer "score", default: 0, null: false
+    t.string "color"
     t.index ["user_id"], name: "index_avatars_on_user_id"
   end
 
