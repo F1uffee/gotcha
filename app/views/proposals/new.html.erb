@@ -6,7 +6,7 @@
     <p>Question</p>
     <p><%= @question.question %></p>
   </div>
-  
+
 <br>
 <p>Tu as 20 secondes pour répondre</p>
 <%# # donner ma réponse à la question %>
@@ -14,7 +14,8 @@
   <%= f.input :proposal, input_html: { class: "user-input",placeholder:"Ta super proposition" } %>
   <%= f.button :submit, "Valider ma proposition", class: "button-primary"%>
 <% end %>
-<div data-controller="autolink">
+<%# <div data-controller="autolink">
   <%= link_to "redirection", game_question_path(@game, @question), data: {autolink_target:"link_three"}, class: "d-none"  %>
+<%# </div> %>
 
-</div>
+  <%= link_to "voir les propositions", game_question_path(@game, @question)%>
