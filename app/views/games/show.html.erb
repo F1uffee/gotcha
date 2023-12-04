@@ -1,4 +1,9 @@
 <%# 1/ PARTIE PENDING %>
+
+<%= turbo_stream_from "avatars" %>
+<%= turbo_stream_from "redirect" %>
+
+
 <% if @game.status == "pending" %>
   <h1>EN ATTENTE DE JOUEURS....</h1>
 <br>
@@ -15,6 +20,13 @@
 
 <%# Affichage des joueurs%>
 <%= render "avatars" %>
+
+  <%# Bouton lancer la partie pour owner %>
+  <% if @game.user_id == current_user.id %>
+    <div id="redirect">
+      <%= button_to "Lancer la partie", game_path(@game, status: "running"),method: :patch, class: "button-primary"%>
+    </div>
+  <% end %>
 <% end %>
 <%# 2/ PARTIE RUNNING %>
 <% if @game.status == "running" %>

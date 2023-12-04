@@ -11,6 +11,8 @@ class Game < ApplicationRecord
   has_many :users, through: :game_users
   has_many :votes
 
+  after_update_commit -> { broadcast_prepend_to "redirect", partial: "games/redirect_after_update_game", locals: { game: self }, target: "redirect" }
+
   def questions_votes
     out = []
     questions.each do |question|
