@@ -1,41 +1,60 @@
 <H1>Bienvenue dans la partie <%= @game.name %> </H1>
 
+<h2>CHOISIS TON PSEUDO :</h2>
+
 <%= simple_form_for(@avatar) do |f| %>
-    <%= f.input :name, label: 'CHOISIS TON PSEUDO', placeholder: "Ton super pseudo"  %>
-    <p> selectionne un avatar</p>
-  <div>
-    <input type="radio" id="avatar1" name="url" value="avatar1">
-    <label for="avatar1">
-      <%= image_tag "avatars/avatar1.png", class:"d-block w-50"%>
-    </label><br>
+    <%= f.input :name, input_html: { class: "user-input", placeholder:"Ton super pseudo" } %>
 
-    <input type="radio" id="picture2" name="url" value="avatar2">
-    <label for="avatar2">
-      <%= image_tag "avatars/avatar2.png", class:"d-block w-50"%>
-    </label><br>
+    <h2> CHOISIS TON AVATAR :</h2>
+    <div class="avatar-choice">
+      <div class="grid-container">
 
-    <input type="radio" id="avatar3" name="url" value="avatar3">
-    <label for="avatar3">
-      <%= image_tag "avatars/avatar3.png", class:"d-block w-50"%>
-    </label><br>
+        <div class="avatar-item">
+          <input type="radio" id="avatar1" name="url" value="avatar1">
+          <label for="avatar1">
+            <%= image_tag "avatars/avatar1.png"%>
+          </label>
+        </div>
 
-    <input type="radio" id="avatar4" name="url" value="avatar4">
-    <label for="avatar4">
-      <%= image_tag "avatars/avatar4.png", class:"d-block w-50"%>
-    </label><br>
+        <div class="avatar-item">
+          <input type="radio" id="avatar2" name="url" value="avatar2">
+          <label for="avatar2">
+            <%= image_tag "avatars/avatar2.png"%>
+          </label>
+        </div>
 
-    <input type="radio" id="avatar5" name="url" value="avatar5">
-    <label for="avatar5">
-      <%= image_tag "avatars/avatar5.png", class:"d-block w-50"%>
-    </label><br>
+        <div class="avatar-item">
+          <input type="radio" id="avatar3" name="url" value="avatar3">
+          <label for="avatar3">
+            <%= image_tag "avatars/avatar3.png"%>
+          </label>
+        </div>
 
-    <input type="radio" id="avatar6" name="url" value="avatar6">
-    <label for="avatar6">
-      <%= image_tag "avatars/avatar6.png", class:"d-block w-50"%>
-    </label><br>
-  </div>
+        <div class="avatar-item">
+          <input type="radio" id="avatar4" name="url" value="avatar4">
+          <label for="avatar4">
+            <%= image_tag "avatars/avatar4.png"%>
+          </label>
+        </div>
+
+        <div class="avatar-item">
+          <input type="radio" id="avatar5" name="url" value="avatar5">
+          <label for="avatar5">
+            <%= image_tag "avatars/avatar5.png"%>
+          </label>
+        </div>
+
+        <div class="avatar-item">
+          <input type="radio" id="avatar6" name="url" value="avatar6">
+          <label for="avatar6">
+            <%= image_tag "avatars/avatar6.png"%>
+          </label>
+        </div>
+      </div>
+    </div>
+
     <%= hidden_field_tag :game_id, @game.id%>
-    <%= f.button :submit, "Rejoindre la partie"%>
+    <%= f.button :submit, "Rejoindre la partie", class: "button-primary"%>
   <% end %>
 <br>
   <p>Rajouter ici le tuto comment jouer de la HP quand il sera fini</p>
