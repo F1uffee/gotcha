@@ -1,4 +1,4 @@
-<%# Il faudrait rajouter le fait qu'on peut pas accéder à cette page si on ne fait pas partie du game_user de cette game %>
+<%# 1/ PARTIE PENDING %>
 <% if @game.status == "pending" %>
   <h1>EN ATTENTE DE JOUEURS....</h1>
 <br>
@@ -35,7 +35,6 @@
     <%= button_to "Lancer la partie", game_path(@game, status: "running"),method: :patch, class: "button-primary"%>
   <% end %>
 <% end %>
-
 
 <%# 2/ PARTIE RUNNING %>
 <% if @game.status == "running" %>

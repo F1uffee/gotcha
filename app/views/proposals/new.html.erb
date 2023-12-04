@@ -6,12 +6,15 @@
     <p>Question</p>
     <p><%= @question.question %></p>
   </div>
-  <br>
-      <%# # donner ma réponse à la question %>
-    <div data-controller="submit-automatic">
-      <%= simple_form_for([@game, @question, @proposal], data: {submit_automatic_target: "form" }) do |f| %>
-        <%= f.input :proposal, input_html: { class: "user-input",placeholder:"Ta super proposition" } %>
-        <% f.submit %>
-      <% end %>
-    </div>
+  
+<br>
+<p>Tu as 20 secondes pour répondre</p>
+<%# # donner ma réponse à la question %>
+<%= simple_form_for([@game, @question, @proposal], data: {submit_automatic_target: "form" }) do |f| %>
+  <%= f.input :proposal, input_html: { class: "user-input",placeholder:"Ta super proposition" } %>
+  <%= f.button :submit, "Valider ma proposition", class: "button-primary"%>
+<% end %>
+<div data-controller="autolink">
+  <%= link_to "redirection", game_question_path(@game, @question), data: {autolink_target:"link_three"}, class: "d-none"  %>
+
 </div>

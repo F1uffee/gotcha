@@ -20,25 +20,58 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    # unless @game.user_id == current_user.id || current_user.game_users.where(game_id: @game.id)
-    #   redirect_to root_path
-    # end
+
+    #  on donne un index à la question
     if params[:question].nil?
       @question = @game.questions[0]
     else
       @question = @game.questions[params[:question].to_i]
     end
 
+    # on gère la redirection à chaque manche
       if @game.status == "running" && @question.proposals.empty?
         redirect_to new_game_question_proposal_path(@game, @question)
       end
+
+    #  on définit la variable avatars
     @game_users = @game.game_users
     @avatars = @game_users.map do |game_user|
       @avatar = Avatar.where(user_id: game_user.user_id).last
     end
-    @proposals = @game.proposals.to_a
 
+    # on définit la variable owner
     @owner = Avatar.where(user_id: @game.user_id).last
+
+    #  on définit un array de toutes les propositions du jeu
+    @proposals = Proposal.where(game_id: @game.id).to_a
+
+    #  on calcule le score de chaque avatar
+    @avatars.each do |avatar|
+      # je definis une variable avatar_vote qui correspond aux votes qu'à fait l'avatar sur la bonne réponse
+      @avatar_votes = Vote.where(game_id: @game.id, user_id: avatar.user_id, proposal_id: nil)
+      # je vais eacher dessus et à chaque vote je vais rajouter 1 au score de l'avatar
+      @avatar_votes.each do |vote|
+        avatar.score += 1
+      end
+      # je definis une variable avatar_proposals qui correspond aux propositions faites par l'avatar
+      @avatar_proposals = Proposal.where(user_id: avatar.user_id, game_id: @game.id)
+      # je vais eacher dessus et rajouter 2 points au score de l'avatar pour chaque vote sur cette proposition
+      @avatar_proposals.each do |proposal|
+        avatar.score += proposal.votes.count * 2
+      end
+    end
+
+    # on calcule le score de l'owner
+    @owner_proposals = Proposal.where(user_id: @owner.user_id, game_id: @game.id)
+    @owner_proposals.each do |proposal|
+      @owner.score += proposal.votes.count * 2
+    end
+    # je definis une variable owner_vote
+    @owner_votes = Vote.where(game_id: @game.id, user_id: @owner.user_id, proposal_id: nil)
+    # je vais eacher dessus et à chaque vote je vais rajouter 1 au score de l'owner
+    @owner_votes.each do |vote|
+      @owner.score += 1
+    end
   end
 
   def update
