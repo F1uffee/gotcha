@@ -1,7 +1,7 @@
 <%# # en tant qu'utilisateur je peux voir la question %>
 
 <div class = "container">
-    <h1 id= "question-new-titre">Invente une réponse à la question</h1>
+    <h1>Invente une réponse à la question</h1>
   <div class= "question-card">
     <p>Question</p>
     <p><%= @question.question %></p>
@@ -10,7 +10,7 @@
       <%# # donner ma réponse à la question %>
     <div data-controller="submit-automatic">
       <%= simple_form_for([@game, @question, @proposal], data: {submit_automatic_target: "form" }) do |f| %>
-        <%= f.input :proposal, input_html: { class: "user-input" } %>
+        <%= f.input :proposal, input_html: { class: "user-input",placeholder:"Ta super proposition" } %>
         <% f.submit %>
       <% end %>
     </div>

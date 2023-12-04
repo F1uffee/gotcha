@@ -1,0 +1,20 @@
+.link{
+  background-color: white;
+  border-radius: 5px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.game-link{
+  display: flex;
+  justify-content: center;
+  height: 30px;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+
+.invite-link {
+  color: $dark-blue;
+  text-decoration: none;
+}

@@ -1,12 +1,32 @@
 .button-primary {
-  display: flex;
-  height: 41px;
-  width: 140px;
+  display:flex;
+  height: 50px;
+  width: 200px;
   justify-content: center;
-  align-items: center;
-  gap: 10px;
   border-radius: 60px;
-  background: #45EBA5;
-  font-size: 11px;
+  background: $lagoon;
+  color: $dark-blue;
+  font-size: 15px;
+  font-weight: bold;
   margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+  text-decoration: none;
+  align-items: center;
+}
+
+#btn-tuto{
+color: white;
+height: 15px;
+width: 15px;
+border-radius: 50%;
+margin-right: 5px;
+margin-left: 5px;
+}
+
+.btn-clipboard{
+  background-color: $dark-blue;
+  border: none;
+  margin-left: 4px;
 }

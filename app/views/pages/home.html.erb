@@ -1,34 +1,38 @@
 <div class = "container">
-  <h1> Vous n'avez besoin que de votre imagination ! </h1>
-  <h2>Choix du pseudo</h2>
+  <div class="img-gotcha">
+    <%= image_tag "Gotcha.png" %>
+  </div>
+  <h1> <i>TU N'AURA BESOIN QUE DE TON IMMAGINATION !</i></h1>
+  <br>
+  <h2>CHOISIS TON PSEUDO :</h2>
 
   <!-- le simple form du pseudo -->
   <%= simple_form_for(@avatar) do |f| %>
-    <%= f.input :name, input_html: { class: "user-input" } %>
+    <%= f.input :name, input_html: { class: "user-input", placeholder:"Ton super pseudo" } %>
 
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <%# <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <%= image_tag "avatars/avatar1.png", class:"d-block w-50"%>
-        </div>
-        <div class="carousel-item">
-          <%= image_tag "avatars/avatar2.png", class:"d-block w-50"%>
-        </div>
-        <div class="carousel-item">
-          <%= image_tag "avatars/avatar3.png", class:"d-block w-50"%>
-        </div>
-        <div class="carousel-item">
-          <%= image_tag "avatars/avatar4.png", class:"d-block w-50"%>
-        </div>
-        <div class="carousel-item">
-          <%= image_tag "avatars/avatar5.png", class:"d-block w-50"%>
-        </div>
-        <div class="carousel-item">
-          <%= image_tag "avatars/avatar6.png", class:"d-block w-50"%>
-        </div>
-      </div>
+        <div class="carousel-item active"> %>
+          <%# <%= image_tag "avatars/avatar1.png", class:"d-block w-50"%>
+        <%# </div>
+        <div class="carousel-item"> %>
+          <%# <%= image_tag "avatars/avatar2.png", class:"d-block w-50"%>
+        <%# </div>
+        <div class="carousel-item"> %>
+          <%# <%= image_tag "avatars/avatar3.png", class:"d-block w-50"%>
+        <%# </div>
+        <div class="carousel-item"> %>
+          <%# <%= image_tag "avatars/avatar4.png", class:"d-block w-50"%>
+        <%# </div>
+        <div class="carousel-item"> %>
+          <%# <%= image_tag "avatars/avatar5.png", class:"d-block w-50"%>
+        <%# </div>
+        <div class="carousel-item"> %>
+          <%# <%= image_tag "avatars/avatar6.png", class:"d-block w-50"%>
+        <%# </div>
+      </div> %>
 
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+      <%# <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
@@ -36,45 +40,82 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
-    </div>
+    </div> %>
 
-    <h2> Sélectionne un avatar</h2>
-    <div>
-      <input type="radio" id="avatar1" name="url" value="avatar1">
-      <label for="avatar1">
-        <%= image_tag "avatars/avatar1.png", class:"d-block w-50"%>
-      </label><br>
+    <h2> CHOISIS TON AVATAR :</h2>
+    <div class="avatar-choice">
+      <div class="grid-container">
 
-      <input type="radio" id="picture2" name="url" value="avatar2">
-      <label for="avatar2">
-        <%= image_tag "avatars/avatar2.png", class:"d-block w-50"%>
-      </label><br>
+        <div class="avatar-item">
+          <input type="radio" id="avatar1" name="url" value="avatar1">
+          <label for="avatar1">
+            <%= image_tag "avatars/avatar1.png"%>
+          </label>
+        </div>
 
-      <input type="radio" id="avatar3" name="url" value="avatar3">
-      <label for="avatar3">
-        <%= image_tag "avatars/avatar3.png", class:"d-block w-50"%>
-      </label><br>
+        <div class="avatar-item">
+          <input type="radio" id="avatar2" name="url" value="avatar2">
+          <label for="avatar2">
+            <%= image_tag "avatars/avatar2.png"%>
+          </label>
+        </div>
 
-      <input type="radio" id="avatar4" name="url" value="avatar4">
-      <label for="avatar4">
-        <%= image_tag "avatars/avatar4.png", class:"d-block w-50"%>
-      </label><br>
+        <div class="avatar-item">
+          <input type="radio" id="avatar3" name="url" value="avatar3">
+          <label for="avatar3">
+            <%= image_tag "avatars/avatar3.png"%>
+          </label>
+        </div>
 
-      <input type="radio" id="avatar5" name="url" value="avatar5">
-      <label for="avatar5">
-        <%= image_tag "avatars/avatar5.png", class:"d-block w-50"%>
-      </label><br>
+        <div class="avatar-item">
+          <input type="radio" id="avatar4" name="url" value="avatar4">
+          <label for="avatar4">
+            <%= image_tag "avatars/avatar4.png"%>
+          </label>
+        </div>
 
-      <input type="radio" id="avatar6" name="url" value="avatar6">
-      <label for="avatar6">
-        <%= image_tag "avatars/avatar6.png", class:"d-block w-50"%>
-      </label><br>
+        <div class="avatar-item">
+          <input type="radio" id="avatar5" name="url" value="avatar5">
+          <label for="avatar5">
+            <%= image_tag "avatars/avatar5.png"%>
+          </label>
+        </div>
+
+        <div class="avatar-item">
+          <input type="radio" id="avatar6" name="url" value="avatar6">
+          <label for="avatar6">
+            <%= image_tag "avatars/avatar6.png"%>
+          </label>
+        </div>
+      </div>
     </div>
 
     <%= f.button :submit, "Créer une partie privée", class: "button-primary"%>
   <% end %>
+  <br>
+  <h2>COMMENT JOUER ?</h2>
 
-  <h2>Comment jouer ?</h2>
+<div id="tutorial" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button id="btn-tuto" type="button" data-bs-target="#tutorial" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button id="btn-tuto" type="button" data-bs-target="#tutorial" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button id="btn-tuto" type="button" data-bs-target="#tutorial" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <p id="rule" class="d-block w-100">RÈGLE 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error ducimus accusamus ad, cupiditate accusantium autem earum!</p>
+      <br>
+    </div>
+    <div class="carousel-item">
+      <p id="rule" class="d-block w-100">RÈGLE 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error ducimus accusamus ad, cupiditate accusantium autem earum!</p>
+      <br>
+    </div>
+    <div class="carousel-item">
+      <p id="rule" class="d-block w-100">RÈGLE 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error ducimus accusamus ad, cupiditate accusantium autem earum!</p>
+      <br>
+    </div>
+  </div>
+</div>
 
-  <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item button" %>
+  <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "button-primary" %>
 </div>
