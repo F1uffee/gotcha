@@ -11,7 +11,7 @@ class AvatarsController < ApplicationController
   @avatar = Avatar.new(avatar_params)
   @game = Game.find(params[:game_id]) if params[:game_id]
   @avatar.user_id = current_user.id
-  
+
   url = params[:url]
   @avatar.url = url
 
