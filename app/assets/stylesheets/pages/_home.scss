@@ -80,3 +80,12 @@
 .carousel-item{
   margin-bottom: 10px;
 }
+
+.carousel-item img{
+  width: 290px;
+  height: 150px;
+  object-fit: cover;
+  display: flex;
+  justify-items: center;
+  padding-top: 10px;
+}
