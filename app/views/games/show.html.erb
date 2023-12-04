@@ -22,11 +22,12 @@
 <%= render "avatars" %>
 <br>
 
+    <div id="redirect">
+    </div>
+
   <%# Bouton lancer la partie pour owner %>
   <% if @game.user_id == current_user.id %>
-    <div id="redirect">
       <%= button_to "Lancer la partie", game_path(@game, status: "running"),method: :patch, class: "button-primary"%>
-    </div>
   <% end %>
 <% end %>
 
