@@ -63,10 +63,10 @@
     <% if params[:question] == "2" %>
       <%= button_to "Retour à l'accueil", game_path(@game, status: "finished"),method: :patch, class: "button-primary" %>
     <% else %>
-      <%# <div data-controller="autolink">
-      <%= link_to "manche suivante", game_path(@game, question: params[:question].to_i + 1), data: {autolink_target:"link_two" }, class: "d-none"  %>
-      <%# </div> %>
-      <%= link_to "manche suivante", game_path(@game, question: params[:question].to_i + 1) %>
+      <div data-controller="autolink">
+        <%= link_to "manche suivante", game_path(@game, question: params[:question].to_i + 1), data: {autolink_target:"link_two" }, class: "d-none"  %>
+      </div>
+      <%# <%= link_to "manche suivante", game_path(@game, question: params[:question].to_i + 1) %> 
     <% end %>
   <% end %>
 <% end %>

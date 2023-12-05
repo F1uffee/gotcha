@@ -23,7 +23,7 @@ class AvatarsController < ApplicationController
         redirect_to new_game_path
       end
     else
-      render :new, status: :unprocessable_entity
+      render "pages/home", status: :unprocessable_entity
     end
   end
 
