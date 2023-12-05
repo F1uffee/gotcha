@@ -10,10 +10,9 @@ export default class extends Controller {
     console.log(this.paragraphTarget);
   }
 
-  replace(event) {
-    event.preventDefault();
+  replace() {
     this.proposalBtnTarget.classList.add("d-none");
-    this.paragraphTarget.innerHTML ="En attente des autres joueurs";
+    this.paragraphTarget.innerHTML ="En attente des autres joueurs...";
     this.formTarget.submit();
   }
 }
