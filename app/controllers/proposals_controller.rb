@@ -13,8 +13,12 @@ class ProposalsController < ApplicationController
     @proposal.question = question
     game = Game.find(params[:game_id])
     @proposal.game = game
+    puts "CONTROLLER #{@proposal.game.proposals_quantity}"
+    @proposal.game.proposals_quantity = @proposal.game.proposals_quantity + 1
+    puts "$" * 100
+    puts "CONTROLLER #{@proposal.game.proposals_quantity}"
+    puts "$" * 100
     if @proposal.save
-      @proposal.game.proposals_quantity += 1
 
       # redirect_to game_question_path(game, question)
     else
