@@ -10,14 +10,20 @@
     </div>
 
   <br>
-  <p id = "p-proposal-new"><em>Tu as 20 secondes pour répondre</em></p>
   <%# # donner ma réponse à la question %>
-  <%= simple_form_for([@game, @question, @proposal]) do |f| %>
-    <%= f.input :proposal, input_html: { class: "user-input",placeholder:"Ta super proposition" } %>
-    <%= f.button :submit, "Valider ma proposition", class: "button-primary"%>
-  <% end %>
+  <div data-controller="disable-button">
+    <%= simple_form_for([@game, @question, @proposal]) do |f| %>
+    <div data-disable-button-target="form">
+      <%= f.input :proposal, input_html: { class: "user-input",placeholder:"Ta super proposition" } %>
+      <div data-action="click->disable-button#replace" data-disable-button-target="proposalBtn">
+      <%=f.button :submit, "Valider ma proposition", class: "button-primary"%>
+      </div>
+    <% end %>
+    </div>
+    <p data-disable-button-target="paragraph"></p>
+  </div>
 
-    <div id="redirect">
+    <div id="redirect"></div>
     </div>
 
 </div>
