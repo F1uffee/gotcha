@@ -4,6 +4,6 @@ meta_title: "Gotcha – tu n'auras besoin que de ton imagination"
 
 meta_description: "Jouez gratuitement à Gotcha. Faites preuve d'imagination en inventant les meilleures réponses aux questions. Dupez vos amis, votez et gagnez le maximum de points"
 
-meta_image: "crossed.png" # should exist in `app/assets/images/`
+meta_image: "facebook.png" # should exist in `app/assets/images/`
 
 twitter_account: "@gotcha" # required for Twitter Cards
