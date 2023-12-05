@@ -10,7 +10,7 @@ class Proposal < ApplicationRecord
   def redirect_after_proposal
     # raise
     if self.game.proposals.count % self.game.number_of_players == 0
-      round_number = self.game.proposals.count / self.game.number_of_players
+      round_number = (self.game.proposals.count / self.game.number_of_players) - 1
       puts "*" * 100
       puts "proposals_quantity : #{self.game.proposals.count}"
       puts "number_of_players : #{self.game.number_of_players}"
