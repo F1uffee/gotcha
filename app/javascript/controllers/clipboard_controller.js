@@ -1,16 +1,16 @@
-import Clipboard from 'stimulus-clipboard'
+import { Controller } from "@hotwired/stimulus"
 
-export default class extends Clipboard {
-  connect() {
-    super.connect()
-    console.log('Do what you want here.')
+
+export default class extends Controller {
+  static targets = ["input"];
+  static values = {
+    feedbackText: String
   }
 
-  // Function to override on copy.
-  copy() {}
-
-  // Function to override when to input is copied.
-  copied() {
-    //
+  copy(event) {
+    this.inputTarget.select();
+    document.execCommand('copy');
+    event.currentTarget.disabled = true;
+    event.currentTarget.innerText = this.feedbackTextValue;
   }
 }
