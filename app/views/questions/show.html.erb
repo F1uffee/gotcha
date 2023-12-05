@@ -1,56 +1,70 @@
 
-<%# <% @shuffled_array %>
-<div class = "question-show-card">
-  <h1 id ="question-show">Fais ton choix</h1>
-  <div data-controller="autolink">
-    <%  @shuffled_array.each do |proposal| %>
-      <div>
-        <% if proposal.class == Proposal %>
-          <% if proposal.user_id == current_user.id %>
-            <% proposal %>
-          <% else %>
-            <%# <% if @game.votes.count < @game.game_users.count + 1 %>
-              <%= simple_form_for [proposal,Vote.new], data: {controller: "vote-form" } do |f| %>
-                <div class="d-none">
-                    <%= f.input :question_id, input_html: {value: @question.id} %>
-                    <%= f.input :proposal_id, input_html: {value: proposal.id} %>
-                </div>
-                <div class = "choice-card">
-                  <%= f.button :submit, proposal.proposal, data: {action: 'submit->vote-form#submitForm'}, class: "submit" %>
-                </div>
-              <% end %>
-            <%# <% else %>
-              <%# <%= proposal.proposal %>
-              <%# <% proposal.votes.each do |vote|%>
-                <%# <li><%=Avatar.where(user_id: vote.user_id).last.name %>
-                <%# a voté pour cette proposition</li> %>
-              <%# <% end %>
-            <%# <% end %>
-          <% end %>
-        <% else %>
-          <%# <% if @game.votes.count < @game.game_users.count + 1 %>
-          <%= simple_form_for [@game, @question,Vote.new], data: {controller:"vote-form"}  do |f| %>
-            <div class="d-none">
-                <%= f.input :question_id, input_html: {value: @question.id} %>
-            </div>
+<% if @modulo == 0 && @game.votes.count == @game.number_of_players * @round_number %>
+  <div class = "question-show-card">
+    <h1 id ="question-show">Who got who ?</h1>
+    <div>
+      <% @shuffled_array.each do |proposal| %>
+        <div>
+          <% if proposal.class == Proposal %>
+            <% if proposal.user_id == current_user.id %>
+              <% proposal %>
+            <% else %>
             <div class = "choice-card">
-              <%# <%= proposal.reponse %>
-              <%= f.button :submit, proposal.reponse, data: {action: 'submit->vote-form#submitForm'}, class: "submit" %>
+              <%= proposal.proposal %>
             </div>
+              <% proposal.votes.each do |vote|%>
+                <%=Avatar.where(user_id: vote.user_id).last.color %>
+              <% end %>
+            <% end %>
+        </div>
+          <% else %>
+            <div class = "choice-card">
+              <%= proposal.reponse%>
+            </div>
+            C'était la bonne réponse !
+            <% proposal.votes.each do |vote|%>
+              <%=Avatar.where(user_id: vote.user_id).last.color %>
+            <% end %>
           <% end %>
-          <%# <% else %>
-            <%# <%= proposal.reponse %>
-            <%# <% proposal.votes.each do |vote|%>
-            <%# <ul> %>
-              <%# <li><%=Avatar.where(user_id: vote.user_id).last.name %>
-              <%# a trouvé la bonne réponse</li> %>
-            <%# </ul> %>
-            <%# <% end %>
-          <%# <% end %>
-        <% end %>
-      </div>
-    <% end %>
-    <%# <div data-controller="autolink">
-    <%=link_to 'Accéder aux scores', game_path(@game, question: @index), data: {autolink_target:"link" }, class: "d-none" %>
+        </div>
+      <% end %>
+      <%# <div data-controller="autolink">
+      <%=link_to 'Accéder aux scores', game_path(@game, question: @index), data: {autolink_target:"link" }, class: "d-none" %>
+    </div>
   </div>
-</div>
+
+<% else %>
+<div class = "question-show-card">
+    <h1 id ="question-show">Fais ton choix</h1>
+    <div data-controller="autolink">
+      <%  @shuffled_array.each do |proposal| %>
+        <div>
+          <% if proposal.class == Proposal %>
+            <% if proposal.user_id == current_user.id %>
+              <% proposal %>
+            <% else %>
+                <%= simple_form_for [proposal,Vote.new], data: {controller: "vote-form" } do |f| %>
+                  <div class="d-none">
+                      <%= f.input :question_id, input_html: {value: @question.id} %>
+                      <%= f.input :proposal_id, input_html: {value: proposal.id} %>
+                  </div>
+                  <div class = "choice-card">
+                    <%= f.button :submit, proposal.proposal, data: {action: 'submit->vote-form#submitForm'}, class: "submit" %>
+                  </div>
+                <% end %>
+            <% end %>
+          <% else %>
+            <%= simple_form_for [@game, @question,Vote.new], data: {controller:"vote-form"}  do |f| %>
+              <div class="d-none">
+                  <%= f.input :question_id, input_html: {value: @question.id} %>
+              </div>
+              <div class = "choice-card">
+                <%= f.button :submit, proposal.reponse, data: {action: 'submit->vote-form#submitForm'}, class: "submit" %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
