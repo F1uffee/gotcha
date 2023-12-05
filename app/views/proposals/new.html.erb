@@ -15,12 +15,12 @@
     <%= simple_form_for([@game, @question, @proposal]) do |f| %>
     <div data-disable-button-target="form">
       <%= f.input :proposal, input_html: { class: "user-input",placeholder:"Ta super proposition" } %>
-      <div data-action="click->disable-button#replace" data-disable-button-target="proposalBtn">
-      <%=f.button :submit, "Valider ma proposition", class: "button-primary"%>
+      <div data-disable-button-target="proposalBtn">
+      <%=f.button :submit, "Valider ma proposition", class: "button-primary", data: {action:"click->disable-button#replace"}%>
       </div>
     <% end %>
     </div>
-    <p data-disable-button-target="paragraph"></p>
+    <p class="waiting" data-disable-button-target="paragraph"></p>
   </div>
 
     <div id="redirect"></div>
