@@ -9,10 +9,21 @@
   color: white;
 }
 
-.question-show-card{
+.question-show-card {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 10px;
   align-items: center;
-  margin-bottom: 20px;
+}
+.pills-vote-wrapper {
+  align-items: center;
+  position: absolute;
+  gap: 6px;
+  bottom: -16px;
+  right: 5px;
+}
+.pills-vote {
+  height: 23px;
+  width: 23px;
+  border-radius: 50%;
+  margin: 0;
 }

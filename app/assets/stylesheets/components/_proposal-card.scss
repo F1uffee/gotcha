@@ -6,6 +6,7 @@
   width: 90%;
   height: 66px;
   justify-content: center;
+  align-items: center;
   margin-bottom: 20px;
   margin-right: auto;
   margin-left: auto;
@@ -14,6 +15,37 @@
   font-family: 'Quicksand', sans-serif;
   font-size: 22px;
   padding: 0px;
+  position: relative;
+}
+
+.choice-card.pastel-yellow {
+  border: 5px solid #fcf1b3;
+}
+
+.choice-card.pastel-red {
+  border: 5px solid #fcb3b3;
+}
+
+.choice-card.pastel-blue {
+  border: 5px solid #b3c9fc;
+}
+
+.choice-card.pastel-green {
+  border: 5px solid #b3fcc7;
+}
+
+.choice-card.pastel-cyan {
+  border: 5px solid #b3fcfb;
+}
+
+.choice-card.pastel-pink {
+  border: 5px solid #fcb3e1;
+}
+
+.choice-card.good-answer {
+  border: 5px solid #45EBA5;
+  background-color: #45EBA5;
+  color:black;
 }
 
 
