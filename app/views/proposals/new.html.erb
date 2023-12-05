@@ -1,6 +1,7 @@
 <%# # en tant qu'utilisateur je peux voir la question %>
 <%= turbo_stream_from "redirect" %>
 
+
 <div class = "container">
     <h1>Invente une réponse à la question</h1>
     <div class= "question-card">
@@ -11,7 +12,7 @@
   <br>
   <p id = "p-proposal-new"><em>Tu as 20 secondes pour répondre</em></p>
   <%# # donner ma réponse à la question %>
-  <%= simple_form_for([@game, @question, @proposal], data: {submit_automatic_target: "form" }) do |f| %>
+  <%= simple_form_for([@game, @question, @proposal]) do |f| %>
     <%= f.input :proposal, input_html: { class: "user-input",placeholder:"Ta super proposition" } %>
     <%= f.button :submit, "Valider ma proposition", class: "button-primary"%>
   <% end %>

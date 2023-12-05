@@ -1,5 +1,11 @@
 
-<% if @modulo == 0 && @game.votes.count == @game.number_of_players * @round_number %>
+<%= turbo_stream_from "reload" %>
+
+
+<div id="reload">
+</div>
+
+<% if params[:answer] == "true" %>
   <div class = "question-show-card">
     <h1 id ="question-show">Who got who ?</h1>
     <div>
@@ -28,9 +34,9 @@
           <% end %>
         </div>
       <% end %>
-      <%# <div data-controller="autolink">
-      <%=link_to 'Accéder aux scores', game_path(@game, question: @index), data: {autolink_target:"link" }, class: "d-none" %>
-    </div>
+      <div data-controller="autolink">
+      <%=link_to 'Accéder aux scores', game_path(@game, question: @index), data: {autolink_target:"link"}, class: "d-none"%>
+      </div>
   </div>
 
 <% else %>
@@ -47,6 +53,7 @@
                   <div class="d-none">
                       <%= f.input :question_id, input_html: {value: @question.id} %>
                       <%= f.input :proposal_id, input_html: {value: proposal.id} %>
+                      <%= f.input :game_id, input_html: {value: params[:game_id]} %>
                   </div>
                   <div class = "choice-card">
                     <%= f.button :submit, proposal.proposal, data: {action: 'submit->vote-form#submitForm'}, class: "submit" %>
