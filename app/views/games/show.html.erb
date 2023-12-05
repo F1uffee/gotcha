@@ -39,14 +39,14 @@
   <% end %>
   <%# Affichage des scores %>
   <div id="container-player-cards">
-    <div class="player-card">
+    <div class="player-card <%= @owner.color %>">
       <%= image_tag("avatars/#{@owner.url}.png") %>
       <div class="pseudo">
         <%= @owner.name %> : <%= @owner.score %> points
       </div>
       </div>
         <% @avatars.each do |avatar| %>
-          <div class="player-card">
+          <div class="player-card <%= avatar.color %>">
             <%= image_tag("avatars/#{avatar.url}.png") %>
               <div class="pseudo">
                 <%= avatar.name %> : <%= avatar.score %> points
