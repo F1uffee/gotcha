@@ -12,25 +12,24 @@
       <% @shuffled_array.each do |proposal| %>
         <div>
           <% if proposal.class == Proposal %>
-            <% if proposal.user_id == current_user.id %>
-              <% proposal %>
-            <% else %>
-            <div class = "choice-card">
+            <div class = "choice-card <%=proposal.user.avatars.last.color %>">
               <%= proposal.proposal %>
+              <div class="pills-vote-wrapper d-flex">
+                <% proposal.votes.each do |vote|%>
+                  <div class="pills-vote <%=Avatar.where(user_id: vote.user_id).last.color %>"></div>
+                <% end %>
+              </div>
             </div>
-              <% proposal.votes.each do |vote|%>
-                <%=Avatar.where(user_id: vote.user_id).last.color %>
-              <% end %>
-            <% end %>
         </div>
           <% else %>
-            <div class = "choice-card">
+            <div class = "choice-card good-answer">
               <%= proposal.reponse%>
+              <div class="pills-vote-wrapper d-flex">
+                <% proposal.votes.each do |vote|%>
+                <div class="pills-vote <%=Avatar.where(user_id: vote.user_id).last.color %>"></div>
+              <% end %>
+              </div>
             </div>
-            C'était la bonne réponse !
-            <% proposal.votes.each do |vote|%>
-              <%=Avatar.where(user_id: vote.user_id).last.color %>
-            <% end %>
           <% end %>
         </div>
       <% end %>
