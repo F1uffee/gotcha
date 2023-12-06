@@ -1,16 +1,16 @@
 <div class = "container">
-  <div class="img-gotcha">
+  
+  <%# <div class="img-gotcha">
     <%= image_tag "Gotcha.png" %>
-  </div>
-  <h1> <i>TU N'AURAS BESOIN QUE DE TON IMAGINATION !</i></h1>
-  <br>
-  <h2>Choisis ton nom :</h2>
+  <%# </div> %>
+  <h1 id="h1_home"> <i>Tu n'auras besoin que de ton imagination !</i></h1>
+  <h2>CHOISIS TON NOM :</h2>
 
   <!-- le simple form du pseudo -->
     <%= simple_form_for(@avatar) do |f| %>
       <%= f.input :name, input_html: { class: "user-input", placeholder:"Ton super pseudo" } %>
 
-      <h2> Choisis ton avatar :</h2>
+      <h2> CHOISIS TON AVATAR :</h2>
       <div class="avatar-choice">
         <div class="grid-container">
 
@@ -58,7 +58,7 @@
         </div>
       </div>
 
-      <%= f.button :submit, "Créer une partie privée", class: "button-primary"%>
+      <%= f.button :submit, "Créer une partie privée", class: "button"%>
     <% end %>
   <br>
   <h2>COMMENT JOUER ?</h2>
@@ -68,6 +68,7 @@
       <button id="btn-tuto" type="button" data-bs-target="#tutorial" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button id="btn-tuto" type="button" data-bs-target="#tutorial" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button id="btn-tuto" type="button" data-bs-target="#tutorial" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button id="btn-tuto" type="button" data-bs-target="#tutorial" data-bs-slide-to="3" aria-label="Slide 4"></button>
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -79,12 +80,11 @@
       <div class="carousel-item">
         <%= image_tag "carousel/carousel3.png" %>
       </div>
+      <div class="carousel-item">
+        <%= image_tag "carousel/carousel4.png" %>
+      </div>
     </div>
     <br>
-  </div>
-  <br>
-
-    <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "button-primary" %>
   </div>
 </div>
 

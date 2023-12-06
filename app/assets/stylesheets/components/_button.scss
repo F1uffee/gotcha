@@ -1,4 +1,4 @@
-.button-primary {
+.button {
   display:flex;
   height: 50px;
   width: 200px;
@@ -14,15 +14,21 @@
   border: none;
   text-decoration: none;
   align-items: center;
+  font-family: 'Quicksand', sans-serif;
+
+}
+.button:hover {
+  background-color: $lagoon;
+  color: $dark-blue;
 }
 
 #btn-tuto{
-color: white;
-height: 15px;
-width: 15px;
-border-radius: 50%;
-margin-right: 5px;
-margin-left: 5px;
+  color: white;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 .btn-clipboard{
@@ -38,7 +44,7 @@ margin-left: 5px;
   font-size: 15px;
   display: flex;
   text-align: center;
-  padding-left: 153px;
+  justify-content: center;
   margin-top: 17px;
 }
 
@@ -48,6 +54,6 @@ margin-left: 5px;
   font-size: 15px;
   display: flex;
   text-align: center;
-  padding-left: 145px;
+  justify-content: center;
   margin-top: 17px;
 }

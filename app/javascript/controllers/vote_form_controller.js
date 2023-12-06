@@ -5,10 +5,6 @@ export default class extends Controller {
   static targets = ["decorableElement"]
 
 
-  connect() {
-    console.log("coucou")
-  }
-
   submitForm(){
     this.element.submit()
   }

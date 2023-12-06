@@ -54,9 +54,8 @@
     </div>
 
     <%= hidden_field_tag :game_id, @game.id%>
-    <%= f.button :submit, "Rejoindre la partie", class: "button-primary"%>
+    <%= f.button :submit, "Rejoindre la partie", class: "button"%>
   <% end %>
-<br>
   <%# <p>Rajouter ici le tuto comment jouer de la HP quand il sera fini</p> %>
   <div id="tutorial" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -75,5 +74,4 @@
         <%= image_tag "carousel/carousel3.png" %>
       </div>
     </div>
-    <br>
   </div>

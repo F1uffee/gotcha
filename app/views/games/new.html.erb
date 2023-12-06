@@ -2,13 +2,12 @@
   <% @user_id = current_user.id %>
   <% @avatar = Avatar.where(user_id: @user_id).last%>
   <div class = "align-items-question-new">
-    <h1>BIENVENUE <%= @avatar.name.upcase %>!</h1>
-    <br>
+    <h1>BIENVENUE <%= @avatar.name.upcase %> !</h1>
     <%= simple_form_for(@game) do |f| %>
       <br>
         <%= f.input :name, label: 'DONNE UN NOM À TA PARTIE', placeholder: "Le super nom de ta partie", input_html: { class: "user-input" }  %>
         <br>
-        <%= f.button :submit, "Créer", class: "button-primary"%>
+        <%= f.button :submit, "Créer", class: "button"%>
     <% end %>
   </div>
 </div>
