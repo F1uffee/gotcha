@@ -154,7 +154,7 @@ questions =[
 	{"question":"Au Vietnam, quel animal les Américains voulaient-ils larguer par avion à leurs troupes pour l'utiliser contre les communistes ?", "answer":"Des éléphants"},
 	{"question":"Dans Tintin, la Castafiore se plait à déformer le nom du capitaine Haddock. Comment l'appelle-t-elle dans 'L'affaire Tournesol'? ", "answer":"Paddock"},
 	{"question":"Le 2 mars 1982, qu'est ce que les fans de Claude François s'arrachaient aux enchères de Drouot ?", "answer":"Les bouteilles de sa cave"},
-	{"question":"En espagol, l'expression 'Quand les poules auront des dents' se traduit par une expression différente : 'Quand les grenouilles .....'. Complétez ", "answer":"auront des poils"},
+	{"question":"En espagnol, l'expression 'Quand les poules auront des dents' se traduit par une expression différente : 'Quand les grenouilles .....'. Complétez ", "answer":"auront des poils"},
 	{"question":"En 1993, le gouvernement chinois a officiellement demandé d'en consommer plus. De quoi s'agissait-il ?", "answer":"Des rats"},
 	{"question":"Dans quel endroit précis les Américains ont-ils expérimenté la première réaction nucléaire en 1942 ?", "answer":"Dans un stade de football"},
 	{"question":"Quel est le nom de l'inventeur du tire-bouchon ?", "answer":"On ne le connaît pas"},
