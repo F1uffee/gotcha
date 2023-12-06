@@ -36,6 +36,11 @@
 <%# Titre "Manche xx" terminée ou partie terminée %>
   <% if params[:question] == "4" %>
     <h2>Partie terminée</h2>
+  <%# firework %>
+  <div class="pyro">
+    <div class="before"></div>
+    <div class="after"></div>
+  </div>
   <% else %>
     <h2>Manche <%=params[:question].to_i + 1 %> terminée</h2>
   <% end %>
