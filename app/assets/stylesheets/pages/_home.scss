@@ -36,33 +36,36 @@
   color: white;
 }
 
-.avatar-choice {
-  margin-left: 55px;
-}
-
 .grid-container{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
+  grid-template-columns: 80px 80px;
+  grid-gap: 20px;
   align-items: center;
   margin-bottom: 20px;
+  width: fit-content;
+  margin: auto;
 }
 
 .avatar-item {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 80px;
+
   input[type="radio"]{
     visibility:hidden;
-  };
+    position: absolute;
+    scale: 0;
+  }
+
   input[type=radio]:checked + label > img {
     transform: scale(1.25);
     border: solid $lagoon;
-}
+  }
 }
 
 .avatar-item img {
-  width: 60%;
+  width: 80px;
   border-radius: 50%;
 }
 

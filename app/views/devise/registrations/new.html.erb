@@ -7,20 +7,20 @@
     <%= f.input :email,
                 required: true,
                 autofocus: true,
-                input_html: { class:"user-input-log", placeholder:"ton email", autocomplete: "email" }%>
+                input_html: { class:"user-input", placeholder:"ton email", autocomplete: "email" }%>
                 <br>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { class:"user-input-log", placeholder:"ton mot de passe", autocomplete: "new-password" } %>
+                input_html: { class:"user-input", placeholder:"ton mot de passe", autocomplete: "new-password" } %>
                 <br>
     <%= f.input :password_confirmation,
                 required: true,
-                input_html: {class:"user-input-log", placeholder:"confirme ton mot de passe", autocomplete: "new-password" } %>
+                input_html: {class:"user-input", placeholder:"confirme ton mot de passe", autocomplete: "new-password" } %>
   </div>
   <br>
   <div class="form-actions">
-    <%= f.button :submit, "S'inscrire",  class: "button-primary" %>
+    <%= f.button :submit, "S'inscrire",  class: "button" %>
   </div>
 <% end %>
 
