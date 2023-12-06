@@ -6,21 +6,12 @@
 </div>
 
 <% if params[:answer] == "true" %>
-<%# -- Barre de timer-- %>
-  <div class="container">
-    <div class="progress progress-striped">
-      <div class="progress-bar">
-      </div>
-    </div>
-  </div>
-
   <div class = "question-show-card">
     <h1 id ="question-show">DÉCOUVRE LES VOTES</h1>
     <div>
       <% @shuffled_array.each do |proposal| %>
         <div>
           <% if proposal.class == Proposal %>
-
             <% if proposal.user_id == @game.user_id %>
               <div class = "choice-card pastel-green">
                 <%= proposal.proposal %>
@@ -68,9 +59,7 @@
   </div>
 
 <% else %>
-<div class="coucou" data-controller="wait-message">
-  <div class = "question-show-card">
-     
+<div class = "question-show-card">
     <h1 id ="question-show">FAIS TON CHOIX</h1>
     <div data-controller="autolink">
       <%  @shuffled_array.each do |proposal| %>
@@ -79,19 +68,29 @@
             <% if proposal.user_id == current_user.id %>
               <% proposal %>
             <% else %>
-              <%= simple_form_for [@game, @question,Vote.new], data: {controller:"vote-form"}  do |f| %>
-                <div class="d-none">
-                    <%= f.input :question_id, input_html: {value: @question.id} %>
-                </div>
-                <div class = "choice-card">
-                  <%= f.button :submit, proposal.reponse, data: {action: 'submit->vote-form#submitForm click->wait-message#deco'}, class: "submit" %>
-                </div>
-              <% end %>
+                <%= simple_form_for [proposal,Vote.new], data: {controller: "vote-form" } do |f| %>
+                  <div class="d-none">
+                      <%= f.input :question_id, input_html: {value: @question.id} %>
+                      <%= f.input :proposal_id, input_html: {value: proposal.id} %>
+                      <%= f.input :game_id, input_html: {value: params[:game_id]} %>
+                  </div>
+                  <div class = "choice-card">
+                    <%= f.button :submit, proposal.proposal, data: {action: 'submit->vote-form#submitForm'}, class: "submit" %>
+                  </div>
+                <% end %>
             <% end %>
-          </div>
-        <% end %>
-      </div>
+          <% else %>
+            <%= simple_form_for [@game, @question,Vote.new], data: {controller:"vote-form"}  do |f| %>
+              <div class="d-none">
+                  <%= f.input :question_id, input_html: {value: @question.id} %>
+              </div>
+              <div class = "choice-card">
+                <%= f.button :submit, proposal.reponse, data: {action: 'submit->vote-form#submitForm'}, class: "submit" %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
-    <% end %>
-  <p class="wait-message" data-wait-message-target="wait"></p>
-</div>
+  </div>
+<% end %>
