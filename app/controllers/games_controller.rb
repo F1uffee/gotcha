@@ -9,7 +9,7 @@ class GamesController < ApplicationController
     @game.user_id = current_user.id
     @questions = Question.all
     if @game.save
-      3.times do
+      5.times do
         Round.create(game_id: @game.id, question_id: @questions.sample.id)
       end
       redirect_to game_path(@game)
@@ -45,7 +45,7 @@ class GamesController < ApplicationController
 
     # on définit la variable owner
     @owner = Avatar.where(user_id: @game.user_id).last
-    @owner.color = "pastel-green"
+    # @owner.color = "pastel-green"
 
     #  on définit un array de toutes les propositions du jeu
     @proposals = Proposal.where(game_id: @game.id).to_a

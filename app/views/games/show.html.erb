@@ -8,13 +8,13 @@
   <h1>EN ATTENTE DE JOUEURS....</h1>
 <br>
 
-<div data-controller="clipboard" data-clipboard-success-content-value="Copied!">
+<div data-controller="clipboard" data-clipboard-success-content-value="Copié !" style="color: #ffffff;">
   <% if @game.user_id == current_user.id %>
     <h2>LIEN D'INVITATION :</h2>
     <div class="game-link">
       <input class="link" data-clipboard-target="source" type="text" value=<%="www.gotyou.fr/avatars/new?game_id=#{@game.id}"%> readonly>
       <%# <button data-action="click->clipboard#copy">Copy to Clipboard</button> %>
-      <button class="btn-clipboard" data-action="click->clipboard#copy"><i class="fa-regular fa-copy fa-xl" style="color: #ffffff;"></i></button></div>
+      <button class="btn-clipboard" data-clipboard-target="button" data-action="click->clipboard#copy"><i class="fa-regular fa-copy fa-xl" style="color: #ffffff;"></i></button></div>
     </div>
     <%# <div class="link"><%= link_to "www.gotyou.fr/avatars/new?game_id=#{@game.id}", input_html: {class:"invite-link"}, data: {clipboard_target: "source"}%></div>
   <% end %>
@@ -34,27 +34,26 @@
 <%# 2/ PARTIE RUNNING %>
 <% if @game.status == "running" %>
 <%# Titre "Manche xx" terminée ou partie terminée %>
-  <% if params[:question] == "2" %>
+  <% if params[:question] == "4" %>
     <h2>Partie terminée</h2>
   <% else %>
     <h2>Manche <%=params[:question].to_i + 1 %> terminée</h2>
   <% end %>
   <%# Affichage des scores %>
   <div id="container-player-cards">
-    <div class="player-card <%= @owner.color %>">
-      <%= image_tag("avatars/#{@owner.url}.png") %>
-      <div class="pseudo">
-        <%= @owner.name %> : <%= @owner.score %> points
-      </div>
-      </div>
-        <% @avatars.each do |avatar| %>
+    <% @array_of_avatars = @avatars.to_a %>
+    <% @array_of_avatars << @owner %>
+    <% @sorted_array = @array_of_avatars.sort_by { |avatar| - avatar.score }  %>
+
+        <% @sorted_array.each do |avatar| %>
           <div class="player-card <%= avatar.color %>">
             <%= image_tag("avatars/#{avatar.url}.png") %>
               <div class="pseudo">
                 <%= avatar.name %> : <%= avatar.score %> points
               </div>
-            </div>
-          <% end %>
+          </div>
+        <% end %>
+
   </div>
 
 
@@ -62,7 +61,7 @@
   <% if params[:question].nil? %>
     <%= link_to "manche suivante", game_path(@game) %>
   <% else %>
-    <% if params[:question] == "2" %>
+    <% if params[:question] == "4" %>
       <%= button_to "Retour à l'accueil", game_path(@game, status: "finished"),method: :patch, class: "button-primary" %>
     <% else %>
       <div data-controller="autolink">
