@@ -1,14 +1,18 @@
 <% if notice %>
-  <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
-    <%= notice %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
+  <div class="flash flash-success alert alert-dismissible fade show" role="alert"  data-controller="alerts" data-alerts-target="alert">
+    <span><strong>Yeahhh!</strong> 🎉 tu es connecté</span>
+    <a data-bs-dismiss="alert" aria-label="Close">
+      <%# <i class="fas fa-times"></i> %>
+      <span aria-hidden="true">&times;</span>
+    </a>
   </div>
 <% end %>
 <% if alert %>
-  <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
-    <%= alert %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
+ <div class="flash flash-success alert alert-dismissible fade show" role="alert" data-controller="alerts" data-alerts-target="alert">
+    <span><strong>Ciaoooo!</strong> 👋 à la prochaine</span>
+    <a data-bs-dismiss="alert" aria-label="Close">
+      <%# <i class="fas fa-times"></i> %>
+      <span aria-hidden="true">&times;</span>
+    </a>
   </div>
 <% end %>
