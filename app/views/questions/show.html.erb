@@ -7,25 +7,37 @@
 
 <% if params[:answer] == "true" %>
   <div class = "question-show-card">
-    <h1 id ="question-show">Who got who ?</h1>
+    <h1 id ="question-show">DÉCOUVRE LES VOTES</h1>
     <div>
       <% @shuffled_array.each do |proposal| %>
         <div>
           <% if proposal.class == Proposal %>
-            <div class = "choice-card <%=proposal.user.avatars.last.color %>">
-              <%= proposal.proposal %>
-              <div class="pills-vote-wrapper d-flex">
+            <% if proposal.user_id == @game.user_id %>
+              <div class = "choice-card pastel-green">
+                <%= proposal.proposal %>
+                <div class="pills-vote-wrapper d-flex">
                 <% proposal.votes.each do |vote|%>
-                  <% if vote.user_id == @game.user_id %>
-                    <div class="pills-vote pastel-green"></div>
-                  <% else %>
-                    <div class="pills-vote <%=Avatar.where(user_id: vote.user_id).last.color %>"></div>
-                  <% end %>
+                  <div class="pills-vote <%=Avatar.where(user_id: vote.user_id).last.color %>"></div>
                 <% end %>
+                </div>
+                </div>
               </div>
-            </div>
+            <% else %>
+              <div class = "choice-card <%=proposal.user.avatars.last.color %>">
+                <%= proposal.proposal %>
+                <div class="pills-vote-wrapper d-flex">
+                  <% proposal.votes.each do |vote|%>
+                    <% if vote.user_id == @game.user_id %>
+                      <div class="pills-vote pastel-green"></div>
+                    <% else %>
+                      <div class="pills-vote <%=Avatar.where(user_id: vote.user_id).last.color %>"></div>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
         </div>
-          <% else %>
+        <% else %>
             <div class = "choice-card good-answer">
               <%= proposal.reponse%>
               <div class="pills-vote-wrapper d-flex">
@@ -34,7 +46,8 @@
                     <div class="pills-vote pastel-green"></div>
                   <% else %>
                     <div class="pills-vote <%=Avatar.where(user_id: vote.user_id).last.color %>"></div>
-                  <% end %>              <% end %>
+                  <% end %>
+                <% end %>
               </div>
             </div>
           <% end %>
@@ -47,7 +60,7 @@
 
 <% else %>
 <div class = "question-show-card">
-    <h1 id ="question-show">Fais ton choix</h1>
+    <h1 id ="question-show">FAIS TON CHOIX</h1>
     <div data-controller="autolink">
       <%  @shuffled_array.each do |proposal| %>
         <div>

@@ -4,15 +4,10 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["proposalBtn", "paragraph", "form"]
 
-  connect() {
-    console.log("kinderpingui");
-    console.log(this.proposalBtnTarget);
-    console.log(this.paragraphTarget);
-  }
-
   replace() {
-    this.proposalBtnTarget.classList.add("d-none");
-    this.paragraphTarget.innerHTML ="En attente des autres joueurs...";
-    this.formTarget.submit();
+    if (this.hasFormTarget) {
+      this.proposalBtnTarget.classList.add("d-none");
+      this.paragraphTarget.innerHTML = "En attente des autres joueurs...";
+    }
   }
 }
