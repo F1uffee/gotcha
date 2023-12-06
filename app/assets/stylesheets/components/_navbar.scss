@@ -21,14 +21,10 @@
 }
 
 .navbar-toggler {
-  color: white;
+  border-color : $dark-blue;
+  text-decoration: none;
 }
 
 .button {
   color: white;
-}
-
-.menu {
-  font-size: 40px;
-  color: #1EDD88
 }

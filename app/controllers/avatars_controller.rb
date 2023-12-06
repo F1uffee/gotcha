@@ -8,8 +8,16 @@ class AvatarsController < ApplicationController
 
 
   def create
+
+    player_colors = %w(pastel-yellow pastel-red pastel-blue pastel-pink pastel-cyan)
+
     @avatar = Avatar.new(avatar_params)
-    @game = Game.find(params[:game_id]) if params[:game_id]
+    if params[:game_id]
+      @game = Game.find(params[:game_id])
+      @avatar.color = player_colors[@game.users.count]
+    else
+      @avatar.color = player_colors.first
+    end
     @avatar.user_id = current_user.id
 
     url = params[:url]
