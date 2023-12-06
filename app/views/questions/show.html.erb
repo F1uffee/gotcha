@@ -16,7 +16,11 @@
               <%= proposal.proposal %>
               <div class="pills-vote-wrapper d-flex">
                 <% proposal.votes.each do |vote|%>
-                  <div class="pills-vote <%=Avatar.where(user_id: vote.user_id).last.color %>"></div>
+                  <% if vote.user_id == @game.user_id %>
+                    <div class="pills-vote pastel-green"></div>
+                  <% else %>
+                    <div class="pills-vote <%=Avatar.where(user_id: vote.user_id).last.color %>"></div>
+                  <% end %>
                 <% end %>
               </div>
             </div>
@@ -26,8 +30,11 @@
               <%= proposal.reponse%>
               <div class="pills-vote-wrapper d-flex">
                 <% proposal.votes.each do |vote|%>
-                <div class="pills-vote <%=Avatar.where(user_id: vote.user_id).last.color %>"></div>
-              <% end %>
+                  <% if vote.user_id == @game.user_id %>
+                    <div class="pills-vote pastel-green"></div>
+                  <% else %>
+                    <div class="pills-vote <%=Avatar.where(user_id: vote.user_id).last.color %>"></div>
+                  <% end %>              <% end %>
               </div>
             </div>
           <% end %>
