@@ -9,7 +9,6 @@
       <p><%= @question.question %></p>
     </div>
 
-  <br>
   <%# # donner ma réponse à la question %>
   <div data-controller="disable-button">
     <%= simple_form_for([@game, @question, @proposal]) do |f| %>

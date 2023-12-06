@@ -6,7 +6,6 @@
 
 <% if @game.status == "pending" %>
   <h1>EN ATTENTE DE JOUEURS....</h1>
-<br>
 
 <div data-controller="clipboard" data-clipboard-success-content-value="Copié !" style="color: #ffffff;">
   <% if @game.user_id == current_user.id %>
