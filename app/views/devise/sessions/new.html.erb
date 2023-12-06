@@ -6,16 +6,16 @@
     <%= f.input :email,
                 required: false,
                 autofocus: true,
-                input_html: { class:"user-input-log", placeholder:"ton email",autocomplete: "email" }  %>
+                input_html: { class:"user-inputg", placeholder:"ton email",autocomplete: "email" }  %>
                 <br>
     <%= f.input :password,
                 required: false,
-                input_html: { class:"user-input-log", placeholder:"ton mot de passe", autocomplete: "current-password" } %>
+                input_html: { class:"user-input", placeholder:"ton mot de passe", autocomplete: "current-password" } %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
   <br>
   <div class="form-actions">
-    <%= f.button :submit, "Se connecter", class: "button-primary" %>
+    <%= f.button :submit, "Se connecter", class: "button" %>
   </div>
 <% end %>
 
