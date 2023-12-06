@@ -3,13 +3,12 @@
 
 
 <div class = "container">
-    <h1>Invente une réponse à la question</h1>
+    <h1>INVENTE UNE RÉPONSE À LA QUESTION</h1>
     <div class= "question-card">
       <h3>Question <%= @game.questions.index(@question) + 1 %></h3>
       <p><%= @question.question %></p>
     </div>
 
-  <br>
   <%# # donner ma réponse à la question %>
   <div data-controller="disable-button">
     <%= simple_form_for([@game, @question, @proposal]) do |f| %>

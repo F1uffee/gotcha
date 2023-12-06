@@ -45,7 +45,7 @@ class GamesController < ApplicationController
 
     # on définit la variable owner
     @owner = Avatar.where(user_id: @game.user_id).last
-    # @owner.color = "pastel-green"
+    @owner.color = "pastel-green"
 
     #  on définit un array de toutes les propositions du jeu
     @proposals = Proposal.where(game_id: @game.id).to_a

@@ -6,7 +6,6 @@
 
 <% if @game.status == "pending" %>
   <h1>EN ATTENTE DE JOUEURS....</h1>
-<br>
 
 <div data-controller="clipboard" data-clipboard-success-content-value="Copié !" style="color: #ffffff;">
   <% if @game.user_id == current_user.id %>
@@ -35,9 +34,9 @@
 <% if @game.status == "running" %>
 <%# Titre "Manche xx" terminée ou partie terminée %>
   <% if params[:question] == "4" %>
-    <h2>Partie terminée</h2>
+    <h1>PARTIE TERMINÉE</h1>
   <% else %>
-    <h2>Manche <%=params[:question].to_i + 1 %> terminée</h2>
+    <h1>MANCHE <%=params[:question].to_i + 1 %> TERMINÉE</h1>
   <% end %>
   <%# Affichage des scores %>
   <div id="container-player-cards">
