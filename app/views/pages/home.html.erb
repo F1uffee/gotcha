@@ -1,8 +1,9 @@
 <div class = "container">
-  <div class="img-gotcha">
+  
+  <%# <div class="img-gotcha">
     <%= image_tag "Gotcha.png" %>
-  </div>
-  <h1> <i>TU N'AURAS BESOIN QUE DE TON IMAGINATION !</i></h1>
+  <%# </div> %>
+  <h1 id="h1_home"> <i>Tu n'auras besoin que de ton imagination !</i></h1>
   <h2>CHOISIS TON NOM :</h2>
 
   <!-- le simple form du pseudo -->
@@ -84,9 +85,6 @@
       </div>
     </div>
     <br>
-  </div>
-  <br>
-    <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "button" %>
   </div>
 </div>
 
