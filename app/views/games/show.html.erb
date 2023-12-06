@@ -28,7 +28,7 @@
 
   <%# Bouton lancer la partie pour owner %>
   <% if @game.user_id == current_user.id %>
-      <%= button_to "Lancer la partie", game_path(@game, status: "running"),method: :patch, class: "button-primary"%>
+      <%= button_to "Lancer la partie", game_path(@game, status: "running"),method: :patch, class: "button"%>
   <% end %>
 <% end %>
 <%# 2/ PARTIE RUNNING %>
@@ -62,7 +62,7 @@
     <%= link_to "manche suivante", game_path(@game) %>
   <% else %>
     <% if params[:question] == "4" %>
-      <%= button_to "Retour à l'accueil", game_path(@game, status: "finished"),method: :patch, class: "button-primary" %>
+      <%= button_to "Retour à l'accueil", game_path(@game, status: "finished"),method: :patch, class: "button" %>
     <% else %>
       <div data-controller="autolink">
         <%= link_to "manche suivante", game_path(@game, question: params[:question].to_i + 1), data: {autolink_target:"link_two" }, class: "d-none"  %>
