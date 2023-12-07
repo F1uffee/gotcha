@@ -34,18 +34,25 @@
 <% if @game.status == "running" %>
 <%# Titre "Manche xx" terminée ou partie terminée %>
   <% if params[:question] == "4" %>
+    <h2>Partie terminée</h2>
+  <%# firework %>
+  <div class="pyro">
+    <div class="before"></div>
+    <div class="after"></div>
+  </div>
     <h1>PARTIE TERMINÉE</h1>
   <% else %>
     <h1>MANCHE <%=params[:question].to_i + 1 %> TERMINÉE</h1>
   <% end %>
   <%# Affichage des scores %>
-<%# Barre de progression %>
-    <div class="container">
+  <%# barre de progression %>
+  <div class="container">
     <div class="progress progress-striped">
       <div class="progress-bar">
       </div>
     </div>
   </div>
+
   <div id="container-player-cards">
     <% @array_of_avatars = @avatars.to_a %>
     <% @array_of_avatars << @owner %>

@@ -5,6 +5,7 @@ export default class extends Controller {
   static targets = ["link","link_two", "link_three"]
 
   connect() {
+
     const delayInMillis = 7000;
     const delayInMillis_two = 20000;
 
