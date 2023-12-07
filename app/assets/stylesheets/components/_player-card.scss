@@ -12,6 +12,14 @@
   font-family: 'Quicksand', sans-serif;
   font-size: 20px;
 }
+
+.pseudo-score{
+  display: flex;
+  color: $dark-blue;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 15px;
+}
+
 .player-card {
   position: relative;
 }
@@ -27,7 +35,7 @@
   width: 90px;
   height: 90px;
   margin-left: 25px;
-  margin-right: 25px;
+  margin-right: 10px;
 }
 
 .pastel-red{
