@@ -28,6 +28,14 @@
   margin: 0;
 }
 
+
+.wait-message{
+  color: white;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+}
+
 // progress bar
 
 .container {
@@ -64,6 +72,6 @@ background: linear-gradient(90deg, rgba(0,121,145,1) 5%, rgba(120,255,214,1) 84%
 }
 
 @keyframes progressAnimationStrike {
-     from { width: 100% }
-     to   { width: 0 }
+  from { width: 100% }
+  to   { width: 0 }
 }
