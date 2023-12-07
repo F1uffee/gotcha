@@ -122,7 +122,7 @@
             <% end %>
             <%= image_tag("avatars/#{avatar.url}.png") %>
               <div class="pseudo">
-                <%= avatar.name %> : <%= avatar.score %> points
+                <strong><%= avatar.name.upcase %>&ensp;</strong><%= avatar.score %> POINTS
               </div>
           </div>
         <% end %>
