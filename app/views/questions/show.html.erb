@@ -7,6 +7,12 @@
 
 <% if params[:answer] == "true" %>
   <div class = "question-show-card">
+    <div class="container">
+    <div class="progress progress-striped">
+      <div class="progress-bar">
+      </div>
+    </div>
+  </div>
     <h1 id ="question-show">DÉCOUVRE LES VOTES</h1>
     <div>
       <% @shuffled_array.each do |proposal| %>
