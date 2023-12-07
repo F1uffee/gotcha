@@ -10,7 +10,9 @@ class GamesController < ApplicationController
     @questions = Question.all
     if @game.save
       5.times do
-        Round.create(game_id: @game.id, question_id: @questions.sample.id)
+        kestion = @questions.sample.id
+        Round.create(game_id: @game.id, question_id: kestion)
+        @questions = Question.includes(:rounds).where(rounds: { question: nil })
       end
       redirect_to game_path(@game)
     else
