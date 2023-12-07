@@ -12,10 +12,10 @@
 
       <h2> CHOISIS TON AVATAR :</h2>
 
-      <div id="carouselExample" class="carousel slide">
-        <div class="carousel-inner">
+      <div id="carouselExample" class="carousel slide" data-controller="autoselect">
+        <div class="carousel-inner" data-autoselect-target="avatarSelect">
 
-          <div class="carousel-item active">
+          <div class="carousel-item active 1">
             <div class="avatar-item">
               <input type="radio" id="avatar1" name="url" value="avatar1">
               <label class="avatar-img-wrapper" for="avatar1">
@@ -24,7 +24,7 @@
             </div>
           </div>
 
-          <div class="carousel-item">
+          <div class="carousel-item 2">
             <div class="avatar-item">
               <input type="radio" id="avatar2" name="url" value="avatar2">
               <label class="avatar-img-wrapper" for="avatar2">
@@ -33,7 +33,7 @@
             </div>
           </div>
 
-          <div class="carousel-item">
+          <div class="carousel-item 3">
             <div class="avatar-item">
               <input type="radio" id="avatar3" name="url" value="avatar3">
               <label class="avatar-img-wrapper" for="avatar3">
@@ -41,23 +41,26 @@
               </label>
             </div>
           </div>
-          <div class="carousel-item">
+
+          <div class="carousel-item 4">
             <div class="avatar-item">
               <input type="radio" id="avatar4" name="url" value="avatar4">
               <label class="avatar-img-wrapper" for="avatar4">
                 <%= image_tag "avatars/avatar4.png"%>
               </label>
             </div>
+
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item 5">
             <div class="avatar-item">
               <input type="radio" id="avatar5" name="url" value="avatar5">
               <label class="avatar-img-wrapper" for="avatar5">
                 <%= image_tag "avatars/avatar5.png"%>
               </label>
             </div>
+
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item 6">
             <div class="avatar-item">
               <input type="radio" id="avatar6" name="url" value="avatar6">
               <label class="avatar-img-wrapper" for="avatar6">
@@ -65,12 +68,13 @@
               </label>
             </div>
           </div>
+
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <button data-action="click->autoselect#select" class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <button data-action="click->autoselect#select" class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>

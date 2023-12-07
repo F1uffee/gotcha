@@ -54,9 +54,9 @@
     scale: 0;
   }
 
-  input[type=radio]:checked + label > img {
-    border: 5px solid $lagoon;
-  }
+  // input[type=radio]:checked + label > img {
+  //   border: 5px solid $lagoon;
+  // }
 }
 
 .avatar-item img {
