@@ -1,0 +1,28 @@
+<% @game = Game.find(params[:game_id]) %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%= link_to root_path, class: "navbar-brand m-2" do %>
+      <%= image_tag ("Gotcha.png") %>
+    <% end %>
+    <% if current_user.id == Avatar.where(user_id: @game.user_id).last.user_id %>
+      <div id="nav-avatar">
+        <%= image_tag("avatars/#{current_user.avatars.last.url}.png") %>
+        <div class="navpills pills-vote pastel-green"></div>
+      </div>
+    <% else %>
+      <div id="nav-avatar">
+        <%= image_tag("avatars/#{current_user.avatars.last.url}.png") %>
+        <div class="navpills pills-vote <%=Avatar.where(user_id: current_user).last.color %>"></div>
+      </div>
+    <% end %>
+
+    <%# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars fa-xl" style="color: #45EBA5;"></i>
+    </button> %>
+
+    <div class="collapse navbar-collapse sticky-top  " id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto d-flex align-items-center ">
+      </ul>
+    </div>
+  </div>
+</div>

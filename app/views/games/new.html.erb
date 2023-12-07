@@ -1,4 +1,6 @@
 <div class = "container">
+  <%= render "shared/navbar" %>
+
   <% @user_id = current_user.id %>
   <% @avatar = Avatar.where(user_id: @user_id).last%>
   <div class = "align-items-question-new">
