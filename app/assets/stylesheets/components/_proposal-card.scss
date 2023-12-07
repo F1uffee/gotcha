@@ -1,6 +1,6 @@
 .choice-card {
-  border: 5px solid #21ABA5;
-  background-color: #21ABA5;
+  border: 5px solid $sage;
+  background-color: $sage;
   border-radius: 10px;
   display: flex;
   width: 90%;
@@ -44,9 +44,9 @@
 }
 
 .choice-card.good-answer {
-  border: 5px solid #45EBA5;
-  background-color: #45EBA5;
-  color:#163A5F;
+  border: 5px solid $lagoon;
+  background-color: $lagoon;
+  color:$dark-blue;
 }
 
 

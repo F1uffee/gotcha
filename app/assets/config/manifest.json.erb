@@ -1,9 +1,9 @@
-
+// app/assets/config/manifest.json.erb
 {
-  "background_color": "163A5F",
-  "description": "Play Gotcha and prove to other players who is the best liar",
+  "background_color": "white",
+  "description": "Tu n'auras besoin que de ton imagination",
   "display": "fullscreen",
-  "name": "Gotcha!",
+  "name": "Gotcha",
   "icons": [
     <% files = Dir.entries(Rails.root.join("app/assets/images/icons/")).select {|f| !File.directory? f} %>
     <% files.each_with_index do |file, index| %>
@@ -15,5 +15,4 @@
       }<%= "," unless (files.size - 1) == index %>
     <% end %>
   ]
-
 }
