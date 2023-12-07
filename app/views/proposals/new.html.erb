@@ -6,7 +6,7 @@
 <div class = "container">
     <h1>INVENTE UNE RÉPONSE À LA QUESTION</h1>
     <div class= "question-card">
-      <h3>Question <%= @game.questions.index(@question) + 1 %></h3>
+      <h3>Question <%= @game.questions.index(@question) + 1 %> / <%= @game.questions.count %></h3>
       <p><%= @question.question %></p>
     </div>
 
