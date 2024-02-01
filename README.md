@@ -85,11 +85,15 @@ The objective is to trap other participants by creating a fabricated response to
 
 ## How to Run Locally
 
-    Clone the repository.
-    Install dependencies using bundle.
-    Set up the database with rails db:create, rails db:migrate and rails db:seed.
-    Start the server with rails s.
-    Open the app in your browser at http://localhost:3000.
+-Clone the repository.
+
+-Install dependencies using ```bundle```.
+
+-Set up the database with rails ```db:create```, ```rails db:migrate``` and ```rails db:seed```.
+
+-Start the server with ```rails s```.
+
+-Open the app in your browser at http://localhost:3000.
 
 ## Contributors
 
