@@ -21,7 +21,7 @@ The objective is to trap other participants by creating a fabricated response to
 
 -Launch a private game after filling out the necessary information.
 
-![Player creation screenshot](/app/assets/images/screenshots/home.png)
+![Player creation screenshot](/app/assets/images/Screenshots/home.png)
 
 ### Lobby
 
@@ -37,7 +37,7 @@ The objective is to trap other participants by creating a fabricated response to
 
 -Click "Start Game" when all participants are present.
 
-![Lobby screenshot](/app/assets/images/screenshots/lobby.png)
+![Lobby screenshot](/app/assets/images/Screenshots/lobby.png)
 
 ### Question & player answer
 
@@ -51,14 +51,14 @@ The objective is to trap other participants by creating a fabricated response to
 
 -The next screen appears only when all players have voted.
 
-![Question screenshot](/app/assets/images/screenshots/round.png)
+![Question screenshot](/app/assets/images/Screenshots/round.png)
 
 ### Results Screen
 -Display each player's responses, highlight the correct answer in green, and show each player's vote using colored indicators.
 
 -A timer (represented by a loading bar) counts down before proceeding to the next screen.
 
-![Results screenshot](/app/assets/images/screenshots/results.png)
+![Results screenshot](/app/assets/images/Screenshots/results.png)
 
 ### Scoreboard
 -Display the score of each player.
@@ -67,14 +67,14 @@ The objective is to trap other participants by creating a fabricated response to
 
 -Award gold, silver, and bronze medals to the top three players.
 
-![Scoreboard screenshot](/app/assets/images/screenshots/scoreboard.png)
+![Scoreboard screenshot](/app/assets/images/Screenshots/Scoreboard.png)
 
 ### End of Game
 -After five rounds, display the final scores with fireworks.
 
 -Include a "Return to Home" button.
 
-![End of the game screenshot](/app/assets/images/screenshots/end.png)
+![End of the game screenshot](/app/assets/images/Screenshots/end.png)
 
 ## Technologies Used
 
@@ -98,8 +98,11 @@ The objective is to trap other participants by creating a fabricated response to
 ## Contributors
 
 -Antoine Le Floch
+
 -Alice Laurin
+
 -Cécile Adam
+
 -François Lerosier
 
 ## Acknowledgments
